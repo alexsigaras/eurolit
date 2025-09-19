@@ -1,0 +1,12 @@
+/* 
+
+Advanced - CSS File
+
+USE THIS STYLE SHEET IF JAVASRCIPT DISABLE
+
+*/
+
+#slider-container{height:400px; overflow:hidden}
+#feature_gallery{height:380px; overflow:hidden;}
+#slider3, #slider3 li{height:380px; overflow:hidden;}
+#slider4, #slider4 li{height:450px; overflow:hidden;}

@@ -1,0 +1,47 @@
+#wrapper-top{ background:url(bg_top_1.png) repeat-x;}
+#wrapper-header{background:#F7F6F2 url(bg.png) repeat-x;
+height:600px;
+}
+#wrapper-bottom{background:#FFFFFF;}
+#wrapper-footer{background:url(bg-footer2.png) repeat;}
+#wrapper-footer-text{background:url(bg-footer3.png) repeat;  
+ }
+#wrapper-footer-text1{background:url(bg-footer3.png) repeat;  
+position:absolute;
+   bottom:0;
+   width:100%;
+   height:50px;   /* Height of the footer */}
+
+#header-light{background:url(header-light.png) no-repeat center top;
+
+}
+#footer-light{background:url(footer-light.png) no-repeat center top;}
+
+#topnav li.back {border:solid 1px #68685b; background:url(hover-menu.png) repeat;}
+#topnav ul{background:#656559 url(line2.gif) repeat-x; }
+#topnav li li{background:url(line2.gif) repeat-x; background-position:bottom}
+#topnav li li:hover {background:#4f4f44 url(line2.gif) repeat-x; background-position:bottom}
+
+.button{
+	border:solid 1px #535349; border-top:solid 2px #828279;
+	background:#505045;
+	background: -webkit-gradient(linear, left top, left bottom, from(#5c5c52), to(#505045));
+	background: -moz-linear-gradient(top,  #5c5c52,  #505045);
+	background: -o-linear-gradient(top,  #5c5c52,  #505045);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#5c5c52', endColorstr='#505045');
+	border-radius: 10px 10px 10px 10px;
+  }
+  
+.button:hover{
+	background: -webkit-gradient(linear, left top, left bottom, from(#505045), to(#5c5c52));
+	background: -moz-linear-gradient(top,  #505045, #5c5c52 );
+	background: -o-linear-gradient(top,  #505045, #5c5c52);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#505045', endColorstr='#5c5c52');
+	border-radius: 10px 10px 10px 10px;
+}
+
+#footer, #footer ul li a, #footer ul li a:visited, #copyright, #copyright a, #copyright a:visited, #footnav li,
+ #footnav li a, #footnav li a:visited{color:#bebebe;}
+#footer ul li a:hover{color:#bdbdbd}
+
+#footer ul li li, #footer .widget-title{background:url(line1.gif) repeat-x; background-position:bottom}
