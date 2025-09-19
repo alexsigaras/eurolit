@@ -23,8 +23,43 @@ Visit the website at: [https://alexsigaras.github.io/eurolit](https://alexsigara
 ├── about.html              # Company information
 ├── contact.html            # Contact details
 ├── projects.html           # Project portfolio
-├── *.html                  # Additional service pages
+├── partners.html           # Business partners
+├── press.html              # Press releases
+├── videos.html             # Video content
+├── why_eurolit.html        # Company advantages
 ├── .nojekyll              # GitHub Pages configuration
+├── pages/                 # Organized content sections
+│   ├── services/          # Service offerings
+│   │   ├── construction.html
+│   │   ├── historic.html
+│   │   ├── project_managment.html
+│   │   ├── diamond.html
+│   │   ├── diamond_screed.html
+│   │   ├── magnesite.html
+│   │   ├── magnesite_screed_floors.html
+│   │   └── vna.html
+│   ├── consulting/        # Consulting services
+│   │   ├── flatness.html
+│   │   ├── specifications.html
+│   │   ├── survey.html
+│   │   ├── correction.html
+│   │   ├── define_movement.html
+│   │   ├── free_movement.html
+│   │   └── graphs.html
+│   ├── technical/         # Technical specifications
+│   │   ├── CONCRETE_MIX_DESIGN.html
+│   │   ├── CONSTRUCTION_JOINTS.html
+│   │   ├── CRACK_AND_DELAMINATION_AVOIDANCE.html
+│   │   ├── FLATNESS_SPECIFICATION.html
+│   │   ├── FLOOR_RENOVATION.html
+│   │   ├── JOINTLESS_FLOORS.html
+│   │   ├── JOINT_REPAIR.html
+│   │   ├── SFRC.html
+│   │   └── SURFACE_TREATMENT.html
+│   └── regional/          # Regional offices
+│       ├── eurolitegypt.html
+│       ├── eurolitkuwait.html
+│       └── eurolitoman.html
 ├── images/                # Image assets (65MB)
 ├── css/                   # Stylesheets
 ├── js/                    # JavaScript files

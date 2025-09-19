@@ -1,53 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta name="geo.region" content="GR" /><meta name="geo.placename" content="&Alpha;&theta;流&nu;&alpha;" /><meta name="geo.position" content="37.975336;23.73615" /><meta name="ICBM" content="37.975336, 23.73615" /><script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-13280027-2']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script><meta name="robots" content="all"/><meta name="geo.region" content="Greece" /><meta name="copyright" content="gzaharakis"/><meta name="keywords" content="Eurolit, construction and renovation, floor technology, floor, floor construction, construction, construction technology" /><meta name="title" content="Eurolit" /><meta name="description" content="Eurolit has been at the forefront of design, construction and renovation of industrial floor technology" />
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta name="geo.region" content="GR" /><meta name="geo.placename" content="&Alpha;&theta;流&nu;&alpha;" /><meta name="geo.position" content="37.975336;23.73615" /><meta name="ICBM" content="37.975336, 23.73615" /><meta name="robots" content="all"/><meta name="geo.region" content="Greece" /><meta name="copyright" content="gzaharakis"/><meta name="keywords" content="Eurolit, construction and renovation, floor technology, floor, floor construction, construction, construction technology" /><meta name="title" content="Eurolit" /><meta name="description" content="Eurolit has been at the forefront of design, construction and renovation of industrial floor technology" />
 	<title>.:: Eurolit - Contact ::.</title>
-	<link href="images/favicon.ico" rel="shortcut icon" /><!--CSS-->
-	<link href="styles/style.css" rel="stylesheet" type="text/css" />
-	<link href="styles/inner.css" rel="stylesheet" type="text/css" />
-	<link href="styles/color.css" rel="stylesheet" type="text/css" />
-	<link href="styles/noscript.css" id="noscript" media="screen,all" rel="stylesheet" type="text/css" /><!--Javascript--><script type="text/javascript" src="js/jquery-1.5.1.min.js"></script><script type="text/javascript" src="js/jquery.preloader.js"></script><script type="text/javascript">
-	jQuery(document).ready(function(){
-	
-		jQuery("#content").preloader();
-		
-		/* Function for tab */	
-		jQuery(".tab-content").hide(); //Hide all content
-		jQuery("ul.tabs li:first").addClass("active").show(); //Activate first tab
-		jQuery(".tab-content:first").show(); //Show first tab content
-		//On Click Event
-		jQuery("ul.tabs li").click(function() {
-			jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
-			jQuery(this).addClass("active"); //Add "active" class to selected tab
-			jQuery(".tab-content").hide(); //Hide all tab content
-			var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
-			jQuery(activeTab).fadeIn(1000); //Fade in the active content
-			return false;
-		});
-		
-		/* Function for toggle */
-		jQuery(".toggle_container").hide();
-		jQuery("h2.trigger").click(function(){
-			jQuery(this).toggleClass("active").next().slideToggle("slow");
-		});
-		
-		
-	});
-</script><script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script><script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	<link href="fancybox/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css" />
-	<link href="style.css" rel="stylesheet" /><script type="text/javascript" src="zoomer.js"></script><script type="text/javascript">
+	<link href="assets/icons/favicon.ico" rel="shortcut icon" /><!--CSS-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<link href="css/inner.css" rel="stylesheet" type="text/css" />
+	<link href="css/color.css" rel="stylesheet" type="text/css" />
+	<link href="css/noscript.css" id="noscript" media="screen,all" rel="stylesheet" type="text/css" /><!--Javascript--><script type="text/javascript" src="js/jquery-3.7.1.min.js"></script><script type="text/javascript" src="js/jquery.preloader.js"></script><script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script><script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<link href="css/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css" />
+	<link href="css/style.css" rel="stylesheet" /><script type="text/javascript" src="js/zoomer.js"></script><script type="text/javascript">
 $(document).ready(function(){
  	$('ul.thumb li').Zoomer({speedView:400,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
 });
@@ -131,7 +92,10 @@ $(document).ready(function(){
 			});
 		});
 	</script><!--Demo Switcher-->
-	<link href="styles/default/default.css" id="skins-switcher" rel="stylesheet" type="text/css" /><script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<link href="css/default.css" id="skins-switcher" rel="stylesheet" type="text/css" /><script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/eurolit-common.js"></script>
+<script type="text/javascript" src="js/analytics.js"></script>
+<script type="text/javascript" src="js/tabs.js"></script>
 </head>
 <body>
 <div id="wrapper-header">
@@ -140,12 +104,12 @@ $(document).ready(function(){
 <div id="top-left"><a href="index.html"><img alt="" src="images/logo.png" style="margin-top: 20px; width: 258px; height: 52px;" /></a>
 <div style="margin-left:208px; float:left; width:740px; margin-top:-77px; ">
     
-    <a style="float: right;margin-top: -10px;width: 30px;position: relative;left: -38px;" href="contact.html" target=""><img  height="20" src="kuwait-fl.png" alt="" /></a>
+    <a style="float: right;margin-top: -10px;width: 30px;position: relative;left: -38px;" href="contact.html" target=""><img  height="20" src="images/kuwait-fl.png" alt="" /></a>
                     
-                    <a style="margin-top:-10px; float:right; margin-right:48px; width: 30px;" href="contact.html" target=""><img  height="20" src="oman.gif" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="egypt.jpg" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="eurolitsaudi.gif" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="Greece-Flag.png" alt="" /></a>
+                    <a style="margin-top:-10px; float:right; margin-right:48px; width: 30px;" href="contact.html" target=""><img  height="20" src="images/oman.gif" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/egypt.jpg" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/eurolitsaudi.gif" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/Greece-Flag.png" alt="" /></a>
     
     
     </div>
@@ -167,7 +131,7 @@ $(document).ready(function(){
 	<li style="margin-left:-5px;"><a class="drop" href="index.html" style="margin-left:0px; background-image: url('images/verticalrule.gif');">Home</a></li>
 	<li><a class="drop" href="about.html" style="background-image: url('images/verticalrule.gif');">About us</a></li>
 	<li><a class="drop" href="why_eurolit.html" style="background-image: url('images/verticalrule.gif');">Why Eurolit</a></li>
-	<li><a class="drop" href="flatness.html" style="background-image: url('images/verticalrule.gif');">Flatness</a></li>
+	<li><a class="drop" href="pages/consulting/flatness.html" style="background-image: url('images/verticalrule.gif');">Flatness</a></li>
 	<li><a class="drop" href="press.html" style="background-image: url('images/verticalrule.gif');">Press</a></li>
 	<li><a class="drop" href="projects.html" style="background-image: url('images/verticalrule.gif');">Projects</a></li>
 	<li><a class="drop" href="partners.html" style="background-image: url('images/verticalrule.gif'); ">Partners</a></li>
@@ -274,17 +238,5 @@ Only entities listed as above are <em>"in cooperation with <strong>eurolit.gr</s
 <!-- #copyright --></div>
 <!-- #footer-text --></div>
 <!-- #wrapper-footer-text --></div>
-<!-- #wrapper --><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-30562723-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script><script type="text/javascript"> Cufon.now(); </script><!-- to fix cufon problems in IE browser --><script type="text/javascript">jQuery('#noscript').remove();</script><!-- if javascript disable --></body>
+<!-- #wrapper --><script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><!-- to fix cufon problems in IE browser --><!-- if javascript disable --></body>
 </html>

@@ -88,7 +88,7 @@
 /* CUSTOM SLIDER ------------------------------------------------------------*/
 
 #slider-block{
-	/*background: url(../img/slider-bg.png) repeat-x left bottom ;*/
+	/*background: url(../images/slider-bg.png) repeat-x left bottom ;*/
 	width: 500px;
 	margin-bottom: 23px;
 	margin-top: 40px;
@@ -98,7 +98,7 @@
 	width: 906px;
 	height: 275px;
 	margin: 0 auto;
-	/*background: transparent url(../img/slider-shadow.png) no-repeat center bottom;*/
+	/*background: transparent url(../images/slider-shadow.png) no-repeat center bottom;*/
 }
 
 #slider {
@@ -107,7 +107,7 @@ margin-left:-10px;
     position:relative;
     width:918px; /* Change this to your images width */
     height: 275px; /*337px + 25px; /* Change this to your images height */
-    background: url(../img/loading.gif) no-repeat 50% 50%;
+    background: url(../images/loading.gif) no-repeat 50% 50%;
 	
 }
 
@@ -154,7 +154,7 @@ margin-left:-10px;
 	width: 37px;
 	height: 37px;
 	text-indent: -9000px;
-	background: url(../img/slider-arrows.png) no-repeat transparent; 
+	background: url(../images/slider-arrows.png) no-repeat transparent; 
 }
 
 .nivo-directionNav a.nivo-nextNav{ 

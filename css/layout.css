@@ -1,0 +1,273 @@
+/*
+====================================
+LAYOUT CSS - Website structure, containers, grid, and layout elements
+====================================
+*/
+
+/* Main Container Structure */
+#wrapper {
+    width: 100%;
+}
+
+#wrapper-top {
+    height: 83px;
+}
+
+#top {
+    width: 940px;
+    margin: 0 auto;
+}
+
+#wrapper-after-top {}
+
+#breadcrumb {
+    width: 940px;
+    margin: 0 auto;
+    padding: 6px 0;
+}
+
+/* Header Layout */
+#wrapper-header {
+    position: relative;
+    height: 450px !important;
+    background: #F7F6F2;
+}
+
+#wrapper-header.height {
+    height: 315px;
+}
+
+#header-light {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    height: 519px;
+}
+
+#header {
+    width: 940px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+#header2 {
+    width: 940px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+#wrapper-header-inner {
+    background: none;
+    padding: 0px 0 0px 0;
+}
+
+#header-inner {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/* Content Layout */
+#wrapper-content {
+    margin-top: -75px;
+    margin-left: 20px;
+}
+
+#content {
+    width: 940px;
+    margin: 0 auto;
+    margin-top: -75px;
+}
+
+#main {}
+
+#main.separator-right {
+    background-position: 653px 0;
+}
+
+/* Sidebar Layout */
+#sidebar {
+    width: 257px;
+    float: left;
+    padding-right: 10px;
+}
+
+#sidebar.positionright {
+    padding: 0 0 0 30px;
+}
+
+/* Main Content Area */
+#maincontent {
+    width: 607px;
+    float: left;
+    padding-left: 30px;
+    text-align: justify;
+}
+
+#maincontent p {
+    margin-right: 10px;
+    text-align: justify;
+}
+
+#maincontent h2 {
+    color: #004B99;
+}
+
+#maincontent.positionleft {
+    padding: 0 30px 0 0;
+}
+
+/* Footer Layout */
+#wrapper-bottom {
+    width: 100%;
+    height: 15px;
+    padding: 22px 0;
+}
+
+#tweets {
+    width: 940px;
+    margin: 0 auto;
+}
+
+#wrapper-footer {
+    position: relative;
+}
+
+#footer-light {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    height: 308px;
+}
+
+#footer {
+    width: 940px;
+    margin: 0 auto;
+    padding: 40px 0;
+    position: relative;
+    z-index: 2;
+}
+
+#wrapper-footer-text {
+    width: 100%;
+    height: 49px;
+}
+
+#footer-text {
+    width: 940px;
+    margin: 0 auto;
+}
+
+/* Top Section Layout */
+#top-left {
+    width: 175px;
+    float: left;
+    height: 83px;
+}
+
+#top-right {
+    float: left;
+    width: 765px;
+}
+
+/* Posts and Content Layout */
+.post {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    background: url(../images/hr.gif) repeat-x left bottom;
+}
+
+.meta {
+    margin-bottom: 20px;
+}
+
+.date {
+    float: left;
+    width: 50px;
+    text-align: center;
+    background: #f8f8f8;
+    border: 1px solid #e8e8e8;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+/* List Layouts */
+.list_post {
+    clear: both;
+    margin-bottom: 30px;
+}
+
+.list_post_content {
+    float: left;
+    width: 500px;
+    padding-left: 20px;
+}
+
+.list_post_date {
+    float: left;
+    width: 60px;
+    text-align: center;
+}
+
+/* Column Layouts */
+.col1, .col2, .col3, .col4 {
+    float: left;
+    margin-right: 20px;
+}
+
+.col1 {
+    width: 220px;
+}
+
+.col2 {
+    width: 460px;
+}
+
+.col3 {
+    width: 300px;
+}
+
+.col4 {
+    width: 940px;
+    margin-right: 0;
+}
+
+/* Gallery Layout */
+.gallery {
+    clear: both;
+    margin: 20px 0;
+}
+
+.gallery-item {
+    float: left;
+    margin: 10px;
+}
+
+/* Image Layout Helpers */
+.thumbnail {
+    float: left;
+    margin: 5px 10px 5px 0;
+    border: 1px solid #ddd;
+    padding: 2px;
+}
+
+/* Contact Form Layout */
+.contact-form {
+    width: 100%;
+    clear: both;
+}
+
+.contact-form-left {
+    float: left;
+    width: 300px;
+}
+
+.contact-form-right {
+    float: right;
+    width: 300px;
+}

@@ -1,0 +1,31 @@
+/*
+====================================
+MAIN CSS - Eurolit Website Modular Stylesheet
+====================================
+This is the main CSS file that imports all modular stylesheets.
+Use this file as the primary CSS reference in HTML files.
+*/
+
+/* Import modular CSS files in order of specificity */
+@import url('utilities.css');  /* Base styles, reset, typography, utilities */
+@import url('layout.css');     /* Layout, grid, structural elements */
+@import url('components.css'); /* UI components, navigation, forms, widgets */
+
+/* Import color themes */
+@import url('default.css');    /* Color scheme and theme-specific styles */
+
+/* Import plugin-specific styles */
+@import url('jquery.fancybox-1.3.4.css'); /* Fancybox lightbox styles */
+@import url('nivo-slider.css');            /* Nivo slider styles */
+
+/*
+====================================
+CUSTOM OVERRIDES
+====================================
+Add any site-specific custom styles below
+*/
+
+/* Custom site-specific styles can be added here */
+.eurolit-custom {
+    /* Site-specific customizations */
+}

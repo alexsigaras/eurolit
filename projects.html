@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<!DOCTYPE html>
+<html lang="en"><head>
 <meta http-equiv="Content-Script-Type" content="text/javascript" /> 
 <meta name="geo.region" content="GR" />
 <meta name="geo.placename" content="&Alpha;&theta;ή&nu;&alpha;" />
@@ -14,16 +14,16 @@
 <meta name="title" content="Eurolit" />
 <meta name="description" content="Eurolit has been at the forefront of design, construction and renovation of industrial floor technology" />
 <title>.:: Eurolit - Projects ::.</title>
-<link rel="shortcut icon" href="images/favicon.ico" />
+<link rel="shortcut icon" href="assets/icons/favicon.ico" />
 
 <!--CSS-->
-<link href="styles/style.css" rel="stylesheet" type="text/css" />
-<link href="styles/inner.css" rel="stylesheet" type="text/css" />
-<link href="styles/color.css" rel="stylesheet" type="text/css" />
-<link href="styles/noscript.css" rel="stylesheet" type="text/css" id="noscript" media="screen,all"  />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/inner.css" rel="stylesheet" type="text/css" />
+<link href="css/color.css" rel="stylesheet" type="text/css" />
+<link href="css/noscript.css" rel="stylesheet" type="text/css" id="noscript" media="screen,all"  />
 
 <!--Javascript-->
-<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
 
 
 <script type="text/javascript" src="js/jquery.preloader.js"></script>
@@ -31,11 +31,11 @@
 
 
 
-	<script type="text/javascript" src="fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-	<link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css" media="screen" />
- 	<link rel="stylesheet" href="style.css" />
-<script src="mouseover_popup.js" language="JavaScript" type="text/javascript"></script>	
+	<script type="text/javascript" src="js/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="js/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css" media="screen" />
+ 	<link rel="stylesheet" href="css/style.css" />
+<script src="js/mouseover_popup.js" language="JavaScript" type="text/javascript"></script>	
 	
 
 	
@@ -140,10 +140,12 @@
     </script>
 	
 <!--Demo Switcher-->
-<link href="styles/default/default.css" rel="stylesheet" type="text/css" id="skins-switcher" />
+<link href="css/default.css" rel="stylesheet" type="text/css" id="skins-switcher" />
 
 
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/eurolit-common.js"></script>
+<script type="text/javascript" src="js/analytics.js"></script>
 
 
 
@@ -159,12 +161,12 @@
 					<a href="index.html"><img style="margin-top:20px;" src="images/logo.png" alt="" /></a>
 					
 					<div style="margin-left:208px; float:left; width:740px; margin-top:-77px; ">
-                    <a style="float: right;margin-top: -10px;width: 30px;position: relative;left: -38px;" href="contact.html" target=""><img  height="20" src="kuwait-fl.png" alt="" /></a>
+                    <a style="float: right;margin-top: -10px;width: 30px;position: relative;left: -38px;" href="contact.html" target=""><img  height="20" src="images/kuwait-fl.png" alt="" /></a>
                     
-                    <a style="margin-top:-10px; float:right; margin-right:48px; width: 30px;" href="contact.html" target=""><img  height="20" src="oman.gif" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="egypt.jpg" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="eurolitsaudi.gif" alt="" /></a>
-					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="Greece-Flag.png" alt="" /></a>
+                    <a style="margin-top:-10px; float:right; margin-right:48px; width: 30px;" href="contact.html" target=""><img  height="20" src="images/oman.gif" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/egypt.jpg" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/eurolitsaudi.gif" alt="" /></a>
+					<a style="margin-top:-10px; float:right; margin-right:10px; width:30px;" href="contact.html" target=""><img  height="20" src="images/Greece-Flag.png" alt="" /></a>
 
 </div>
 					
@@ -238,8 +240,8 @@
     <div class="container">
 	<ul class="menu" rel="sam1">  
     <li class="active"><a href="projects.html">Steel Fiber Reinforced Concrete</a></li>  
-    <li ><a href="magnesite.html">Magnesite Screed</a></li>  
-    <li ><a href="diamond.html">Diamond Polished Concrete</a></li>  
+    <li ><a href="pages/services/magnesite.html">Magnesite Screed</a></li>
+    <li ><a href="pages/services/diamond.html">Diamond Polished Concrete</a></li>  
     
 	
 	
@@ -256,20 +258,20 @@
 	
 	
 	<div >
-        <img alt="" class="thumbnail" style="width:65px!important; height:49px!important;" src="img/logo/philip.jpg" />
-        <img class="thumbnail" style="width:65px!important; height:47px!important;" src="img/logo/benz.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:42px!important;" src="img/logo/plus.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:22px!important;" src="img/logo/bic.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:32px!important;" src="img/logo/glaxo.jpg"  alt="" />
-        <img class="thumbnail" style="width:65px!important; height:23px!important;" src="img/logo/ikea.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:27px!important;" src="img/logo/abbot.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:16px!important;" src="img/logo/famar.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:35px!important;" src="img/logo/nagel.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:31px!important;" src="img/logo/gample.jpg" alt="" />
-        <img class="thumbnail" style="width:57px!important; height:27px!important;" src="img/logo/schiesser.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:15px!important;" src="img/logo/siemens.jpg" alt="" />
-        <img class="thumbnail" style="width:65px!important; height:80px!important;" src="img/logo/aldi.jpg" alt="" />
-        <img class="thumbnail" style="width:135px!important; height:36px!important;" src="img/logo/masoutis.jpg" alt="" />
+        <img alt="" class="thumbnail" style="width:65px!important; height:49px!important;" src="images/logo/philip.jpg" />
+        <img class="thumbnail" style="width:65px!important; height:47px!important;" src="images/logo/benz.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:42px!important;" src="images/logo/plus.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:22px!important;" src="images/logo/bic.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:32px!important;" src="images/logo/glaxo.jpg"  alt="" />
+        <img class="thumbnail" style="width:65px!important; height:23px!important;" src="images/logo/ikea.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:27px!important;" src="images/logo/abbot.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:16px!important;" src="images/logo/famar.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:35px!important;" src="images/logo/nagel.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:31px!important;" src="images/logo/gample.jpg" alt="" />
+        <img class="thumbnail" style="width:57px!important; height:27px!important;" src="images/logo/schiesser.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:15px!important;" src="images/logo/siemens.jpg" alt="" />
+        <img class="thumbnail" style="width:65px!important; height:80px!important;" src="images/logo/aldi.jpg" alt="" />
+        <img class="thumbnail" style="width:135px!important; height:36px!important;" src="images/logo/masoutis.jpg" alt="" />
        
         <div id="imgContainer">
         </div>
@@ -882,18 +884,5 @@ Defined Movement: DIN 15185 - h>6m
 		</div><!-- #wrapper-footer-text -->
 		
 	</div><!-- #wrapper -->
-	<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-30562723-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 </body>
 </html>
