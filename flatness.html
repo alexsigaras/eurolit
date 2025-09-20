@@ -68,7 +68,7 @@
 
 			$("a#example3").fancybox({
 				'transitionIn'	: 'none',
-				'transitionOut'	: 'none'	
+				'transitionOut'	: 'none'
 			});
 
 			$("a#example4").fancybox({
@@ -160,6 +160,33 @@
     "addressCountry": "GR"
   }
 }
+  </script>
+  <script type="text/javascript">
+   $(document).ready(function() {
+     // Show the first section by default
+     $('.content-section').hide();
+     $('#importance-section').show();
+     $('.menu li').removeClass('active');
+     $('.menu li:first').addClass('active');
+
+     // Handle menu clicks
+     $('.menu a').click(function(e) {
+       e.preventDefault();
+
+       // Remove active class from all menu items
+       $('.menu li').removeClass('active');
+
+       // Add active class to clicked item
+       $(this).parent().addClass('active');
+
+       // Hide all content sections
+       $('.content-section').hide();
+
+       // Show the target section
+       var target = $(this).attr('href').replace('#', '') + '-section';
+       $('#' + target).show();
+     });
+   });
   </script>
  </head>
  <body>
@@ -269,7 +296,7 @@
    <main id="main-content" role="main">
     <div id="wrapper-content">
      <article id="content" style="margin-top:100px;">
-      <div id="main" style="height:700px;">
+      <div id="main" style="height:auto; min-height:700px;">
        <div id="sidebar">
         <h2 class="widget-title">
          Flatness
@@ -278,37 +305,37 @@
          <div class="container">
           <ul class="menu" rel="sam1">
            <li class="active">
-            <a href="flatness.html">
+            <a href="#importance">
              Importance Of Flatness
             </a>
            </li>
            <li>
-            <a href="specifications.html">
+            <a href="#specifications">
              Specifications
             </a>
            </li>
            <li>
-            <a href="survey.html">
+            <a href="#survey">
              Survey
             </a>
            </li>
            <li>
-            <a href="graphs.html">
+            <a href="#graphs">
              Graphs
             </a>
            </li>
            <li>
-            <a href="free_movement.html">
+            <a href="#free_movement">
              Free Movement
             </a>
            </li>
            <li>
-            <a href="define_movement.html">
+            <a href="#define_movement">
              Defined Movement
             </a>
            </li>
            <li>
-            <a href="correction.html">
+            <a href="#correction">
              Flatness Correction - Upgrade
             </a>
            </li>
@@ -325,7 +352,6 @@
               </a>
               <p>
               </p>
-              <!--<a href="#" class="medium">More Info &rarr; </a>-->
              </li>
              <li>
               <a href="project_managment.html" style="border-right:none;">
@@ -336,7 +362,6 @@
               </a>
               <p>
               </p>
-              <!--<a href="#" class="medium">More Info &rarr; </a>-->
              </li>
              <li>
               <a href="construction.html" style="border-right:none;">
@@ -347,7 +372,6 @@
               </a>
               <p>
               </p>
-              <!--<a href="#" class="medium">More Info &rarr; </a>-->
              </li>
             </ul>
            </li>
@@ -357,33 +381,270 @@
        </div>
        <!-- #sidebar -->
        <div id="maincontent">
-        <h2>
-         Importance of flatness
-        </h2>
-        <div class="image1">
-         <a href="images/Static-LeanL.jpg" rel="example_group" title="Importance of flatness">
-          <img alt="" class="" src="images/Static-LeanS.jpg" style="float:left; margin-right:10px;  "/>
-         </a>
-         <div class="text" style="margin-top:60px;">
+        <!-- Importance of Flatness Section -->
+        <div id="importance-section" class="content-section">
+         <a name="importance" id="importance"></a>
+         <h2>
+          Importance of flatness
+         </h2>
+         <div class="image1">
           <a href="images/Static-LeanL.jpg" rel="example_group" title="Importance of flatness">
+           <img alt="" class="" src="images/Static-LeanS.jpg" style="float:left; margin-right:10px;  "/>
           </a>
-          <a href="assets/documents/static.pdf" style="text-decoration:none; ">
-           <img src="images/pdf1.png" style="margin-top:5px; margin-right:0px; float:left;"/>
-           <p style="font-size:12px; margin-left:0px; width:250px; color:#004B99;  margin-top:0px;">
-            Download Static Lean Table
-           </p>
-          </a>
+          <div class="text" style="margin-top:60px;">
+           <a href="images/Static-LeanL.jpg" rel="example_group" title="Importance of flatness">
+           </a>
+           <a href="assets/documents/static.pdf" style="text-decoration:none; ">
+            <img src="images/pdf1.png" style="margin-top:5px; margin-right:0px; float:left;"/>
+            <p style="font-size:12px; margin-left:0px; width:250px; color:#004B99;  margin-top:0px;">
+             Download Static Lean Table
+            </p>
+           </a>
+          </div>
          </div>
+         <p>
+          Never before has the selection and implementation of the most suitable surface regularity specification been more critical than in today's production, storing and distribution facilities.
+         </p>
+         <p>
+          The selection of the appropriate specification is crucial as it is common to find over specified floors that are not suited for the clients  specific performance requirements which require more time, resources and money to achieve.
+         </p>
+         <p>
+          In an environment where the Materials Handling Equipment (MHE) operate without suspension systems, the warehouse floor is the all important surface that affects the speed, efficiency, maintenance needs and often the safety and movement of the distribution centre operatives and their manually or automatically operated hardware.
+         </p>
         </div>
-        <p>
-         Never before has the selection and implementation of the most suitable surface regularity specification been more critical than in today's production, storing and distribution facilities.
-        </p>
-        <p>
-         The selection of the appropriate specification is crucial as it is common to find over specified floors that are not suited for the clients  specific performance requirements which require more time, resources and money to achieve.
-        </p>
-        <p>
-         In an environment where the Materials Handling Equipment (MHE) operate without suspension systems, the warehouse floor is the all important surface that affects the speed, efficiency, maintenance needs and often the safety and movement of the distribution centre operatives and their manually or automatically operated hardware.
-        </p>
+
+        <!-- Specifications Section -->
+        <div id="specifications-section" class="content-section" style="display:none;">
+         <a name="specifications" id="specifications"></a>
+         <h2>
+          Specifications
+         </h2>
+         <a href="images/skitsoL.jpg" rel="example_group" title="Specification">
+          <img alt="" src="images/skitsoS.jpg" style="float: left"/>
+         </a>
+         <p>
+          As the demand for faster, more efficient warehouse technology increases and truck developments continue, surface regularity specifications help to contribute to warehouse operators peace of mind.
+         </p>
+         <p>
+          Surface regularity specifications are divided into two main categories according to the type of movement the Materials Handling Equipment (MHE) are able to do.
+         </p>
+         <p>
+          i) Free Movement (FM) specifications correspond to MHE that may operate in all directions and undefined paths within the facility.
+         </p>
+         <p>
+          ii) Defined Movement (DM) specifications correspond to MHE that may operate within a defined path, area and direction within the facility. These facilities implement a Very Narrow Aisle (VNA) system.
+         </p>
+         <p>
+          The most accepted and widely implemented surface regularity specifications and their properties are described in:
+         </p>
+         <table border="3" bordercolor="#FFFFFF" cellpadding="3" cellspacing="3" style="background-color: #ffffff; color: black" width="580">
+          <tbody>
+           <tr>
+            <td>
+             <b>
+              Country of Origin
+             </b>
+            </td>
+            <td>
+             <b>
+              Free Movement (FM)
+             </b>
+            </td>
+            <td>
+             <b>
+              Defined Movement (DM)
+             </b>
+            </td>
+           </tr>
+           <tr>
+            <td>
+             Great Britain
+            </td>
+            <td>
+             Concrete Society's TR34 Table 4.2 and 4.4
+            </td>
+            <td>
+             Concrete Society's TR34 Table 4.3 and Appendix C
+            </td>
+           </tr>
+           <tr>
+            <td>
+             Germany
+            </td>
+            <td>
+             DIN 18202 Table 3 Groups 3&amp;4
+            </td>
+            <td>
+             DIN 15185 Tables 1 &amp; 2
+            </td>
+           </tr>
+           <tr>
+            <td>
+             USA
+            </td>
+            <td>
+             ASTM Ε 1155 Μ – F numbers
+            </td>
+            <td>
+             F min numbers
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+
+        <!-- Survey Section -->
+        <div id="survey-section" class="content-section" style="display:none;">
+         <a name="survey" id="survey"></a>
+         <h2>
+          Survey
+         </h2>
+         <a href="images/bicL.jpg" rel="example_group" title="Survey">
+          <img alt="" src="images/bicS.jpg" style="float: left"/>
+         </a>
+         <p>
+          The role of surveying is to get an accurate reading of the surface regularity of the floor.
+         </p>
+         <p>
+          All specifications measure flatness (the variability over a short distance i.e.300mm) and levelness (the variability over longer distances i.e. 1200mm).Flatness could be considered a measure of smoothness for the truck drivers. Levelness has more effect on the stability of the trucks particularly those in aisles. Variability across the width of the aisle and/or between the front and the rear wheels of a truck can have a significant impact on truck swaying and nodding effects resulting in poor efficiency and even unsafe operation.
+         </p>
+         <p>
+          It is worth noting that there is no purpose in selecting and implementing an appropriate specification if there is no way to check if this specification is achieved.
+         </p>
+         <p>
+          The results of this process can be used to check if the contractor has delivered what was promised. Also to access the need and the cost involved if correction or an upgrade is required.
+         </p>
+         <p>
+          The lack of surveying often leads in endless debates about the quality of the floor and its suitability for the Materials Handling Equipment (MHE) to operate on.
+         </p>
+         <p>
+          Eurolit is able to provide surveying for all types of specifications, both for Free and Defined Movement, using exclusively UKAS (United Kingdom Accreditation Service) accredited equipment that are widely accepted by all truck manufacturers.
+         </p>
+        </div>
+
+        <!-- Graphs Section -->
+        <div id="graphs-section" class="content-section" style="display:none;">
+         <a name="graphs" id="graphs"></a>
+         <h2>
+          Graphs
+         </h2>
+         <p>
+          Following are survey graphs for VNA facilities. Red marks indicate the areas out of specification.
+         </p>
+         <a href="assets/documents/Before_Corrctive_Grinding.pdf" style="text-decoration: none">
+          <img src="images/pdf1.png" style="margin-top: -0px; margin-right: -1px"/>
+          <b style="margin-top: 30px">
+           Before Corrective Grinding
+          </b>
+         </a>
+         <a href="assets/documents/After_Corrective_Grinding.pdf" style="text-decoration: none">
+          <img src="images/pdf1.png" style="margin-top: -0px; margin-right: -1px"/>
+          <b style="margin-top: 30px">
+           After Corrective Grinding
+          </b>
+         </a>
+         <a href="images/graphL.png" rel="example_group" title="Graphs">
+          <img alt="" src="images/graphS.png" style="float: left !important"/>
+         </a>
+        </div>
+
+        <!-- Free Movement Section -->
+        <div id="free_movement-section" class="content-section" style="display:none;">
+         <a name="free-movement" id="free-movement"></a>
+         <h2>
+          Free movement
+         </h2>
+         <a href="images/moveL.jpg" rel="example_group" title="Free movement">
+          <img alt="" src="images/moveS.jpg" style="float: left !important"/>
+         </a>
+         <p>
+          In a Free Movement facility the trucks are free to roam in any direction and path in wide aisles. These floors are typically found in factories, retail outlets and parts of distribution centers. Generally, floor requirements on these areas are less strict than in Defined Movement facilities that implement Very Narrow Aisles (VNA) because loads are carried at a lower level, racking is not very high and the aisles are wider. However, it is still necessary to provide a smooth ride for the trucks and safe conditions for the operators in order to achieve maximum efficiency. This is not an easy task and specific measures need to be taken during the construction phase to make sure the tolerances are within limits.
+         </p>
+         <p>
+          Eurolit is able to offer expert advice on designing and implementation of such measures, as well as materials and equipment advise to ensure that the specification is met.
+         </p>
+         <p>
+          It is worth noting that if the specification is not met, very little can be done to correct it, as the area affected will be so large and the added cost and time will result in an unrealistic approach. Hence it is very important that all necessary actions are taken to ensure that the contractor can deliver what was promised..
+         </p>
+        </div>
+
+        <!-- Defined Movement Section -->
+        <div id="define_movement-section" class="content-section" style="display:none;">
+         <a name="defined-movement" id="defined-movement"></a>
+         <h2>
+          Defined movement
+         </h2>
+         <a href="images/defineL.jpg" rel="example_group" title="Defined movement">
+          <img alt="" src="images/defineS.jpg" style="float: left !important"/>
+         </a>
+         <p>
+          In a Defined Movement facility the trucks operate in predetermined area, direction and fixed paths between the racking in a Very Narrow Aisle (VNA) configuration. The clearance between the racking and the truck is often not greater than 150mm.
+         </p>
+         <p>
+         </p>
+         <p>
+          Floor requirements in VNA facilities require careful planning and attention to detail regarding both design and construction phases because safety and productivity depend upon it.
+         </p>
+         <p>
+          The higher the racking the flatter the floor needs to be. The advantages of having met the requirements for a VNA facility are many and fully justify the effort needed to achieve the strict specifications.
+         </p>
+         <p>
+          The capacity of the facility is noticably larger because of high racking, hence more pallet room for a given area. The speed of the VNA trucks is mutch higher thus increasing productivity and eliminating the need for additional VNA trucks.
+         </p>
+         <p>
+          The need for maintenance and down time is significantly lower both in time and money because the ride is smoother.
+         </p>
+         <p>
+          The safety of the personnel and equipment is guaranteed.
+         </p>
+         <p>
+          The value of such facility is significantly higher.
+         </p>
+         <p>
+          Eurolit is able to provide advice and surveying for all types of specifications using exclusively UKAS (United Kingdom Accreditation Service) accredited equipment that are widely accepted by all VNA truck manufacturers.
+         </p>
+        </div>
+
+        <!-- Correction Section -->
+        <div id="correction-section" class="content-section" style="display:none;">
+         <a name="correction" id="correction"></a>
+         <h2>
+          Flatness Correction - Upgrade
+         </h2>
+         <a href="images/capL.jpg" rel="example_group" title="Flatness Correction - Upgrade">
+          <img alt="" src="images/capS.jpg" style="float: left"/>
+         </a>
+         <p>
+          If the facility is already constructed but does not meet the clients standards for operations, or these standards have changed, then measures need to be taken.
+         </p>
+         <p>
+          First we need to determine an appropriate specification that is to be followed and is in accordance with the client's needs.
+         </p>
+         <p>
+         </p>
+         <p>
+          <span style="font-weight: bold">
+           For Defined Movement (VNA) facilities:
+          </span>
+         </p>
+         <p>
+          A survey of the floor needs to be carried out to determine the areas and extent of the problem. After the survey, remedial grinding is the least invasive and most cost efficient method of achieving the specification without disrupting the day to day operations of the facility. The Laser Grinder (a specifically designed machine) will grind only the areas that are out of spec and carve a new profile on the floor where needed exactly where the truck wheels are in contact with the floor.
+         </p>
+         <p>
+          A second survey is carried out to certify that the new profile of the floor is in accordance with the specification and a certificate is issued to the client.
+         </p>
+         <p>
+          The advantages of this procedure are immediately obvious as the trucks now can operate at full speed without any concerns for safety, increasing productivity and minimizing costs.
+         </p>
+         <p>
+          <span style="font-weight: bold">
+           For Free Movement facilities:
+          </span>
+         </p>
+         <p>
+          Since the trucks can move everywhere on the floor and not on predetermined paths the whole area needs to be tackled. A screed can be applied (magnesite or cementitious) or grinding of the whole area can be used to achieve the specification.
+         </p>
+        </div>
        </div>
        <!-- #maincontent -->
        <div class="clear">
