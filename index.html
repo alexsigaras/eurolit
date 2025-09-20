@@ -34,6 +34,18 @@
   <link href="css/noscript.css" id="noscript" media="screen,all" rel="stylesheet" type="text/css"/>
   <script crossorigin="anonymous" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" src="https://code.jquery.com/jquery-3.7.1.min.js">
   </script>
+  <script type="text/javascript">
+   // Cufon compatibility fix for modern browsers
+   (function() {
+    var originalGetComputedStyle = window.getComputedStyle;
+    window.getComputedStyle = function(element, pseudoElement) {
+     if (element && element.nodeType === 1) {
+      return originalGetComputedStyle.call(this, element, pseudoElement);
+     }
+     return {};
+    };
+   })();
+  </script>
   <script src="js/cufon-yui.js" type="text/javascript">
   </script>
   <script src="assets/fonts/Ebrima_400-Ebrima_700.font.js" type="text/javascript">
@@ -62,12 +74,627 @@
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
   <!-- ENDS JS -->
-  <!-- Nivo slider -->
-  <script src="js/nivo-slider/jquery.nivo.slider.js" type="text/javascript">
-  </script>
+  <!-- Modern Swiper Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+   /* CSS Custom Properties for Consistent Theming */
+   :root {
+    --primary-color: #004B99;
+    --secondary-color: #F7F6F2;
+    --text-color: #333333;
+    --text-light: #666666;
+    --white: #ffffff;
+    --container-max-width: 1200px;
+    --header-height: 80px;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
+   }
+
+   /* Modern CSS Reset */
+   * {
+    box-sizing: border-box;
+   }
+
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+   }
+
+   /* Responsive Container */
+   .container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+   }
+
+   /* Modern Header Styles */
+   #site-header {
+    background: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+   }
+
+   .header-top {
+    background: var(--secondary-color);
+    padding: 10px 0;
+   }
+
+   .header-top .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   .logo-section {
+    display: flex;
+    align-items: center;
+   }
+
+   .logo-section img {
+    height: 50px;
+    width: auto;
+   }
+
+   .company-info {
+    text-align: right;
+   }
+
+   .company-info h1 {
+    color: var(--primary-color);
+    font-size: 16px;
+    margin: 0;
+    font-weight: 600;
+   }
+
+   .company-info p {
+    color: var(--primary-color);
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+   }
+
+   .country-flags {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+   }
+
+   .country-flags img {
+    width: 24px;
+    height: 16px;
+    border-radius: 2px;
+    transition: var(--transition);
+   }
+
+   .country-flags img:hover {
+    transform: scale(1.1);
+   }
+
+   /* Modern Navigation */
+   .main-nav {
+    background: var(--primary-color);
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+   }
+
+   .nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   }
+
+   .nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2px;
+   }
+
+   .nav-menu li a {
+    display: block;
+    padding: 15px 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+   }
+
+   .nav-menu li a:hover,
+   .nav-menu li a.active {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+   }
+
+   /* Mobile Navigation */
+   .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 24px;
+    cursor: pointer;
+    padding: 15px;
+   }
+
+   /* Hero/Slider Section */
+   #slider-section {
+    background: var(--secondary-color);
+    padding: 20px 0;
+    margin: 0;
+   }
+
+   .slider-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+   }
+
+   .eurolit-slider {
+    width: 100%;
+    height: 450px; /* Fallback for browsers without aspect-ratio support */
+    aspect-ratio: 16/9;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-hover);
+    background: #f8f9fa;
+   }
+
+   /* Modern browsers will use aspect-ratio, older ones will use fixed height */
+   @supports (aspect-ratio: 16/9) {
+    .eurolit-slider {
+     height: auto;
+    }
+   }
+
+   .eurolit-slider .swiper-slide {
+    position: relative;
+    overflow: hidden;
+   }
+
+   .eurolit-slider .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+   }
+
+   .eurolit-slider .swiper-slide-active img {
+    transform: scale(1.02);
+   }
+
+   /* Navigation Buttons */
+   .eurolit-slider .swiper-button-next,
+   .eurolit-slider .swiper-button-prev {
+    color: var(--primary-color);
+    background: rgba(255,255,255,0.95);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: -25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    backdrop-filter: blur(10px);
+   }
+
+   .eurolit-slider .swiper-button-next::after,
+   .eurolit-slider .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: 700;
+   }
+
+   .eurolit-slider .swiper-button-next:hover,
+   .eurolit-slider .swiper-button-prev:hover {
+    background: var(--white);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    transform: scale(1.1);
+   }
+
+   .eurolit-slider .swiper-button-next {
+    right: 15px;
+   }
+
+   .eurolit-slider .swiper-button-prev {
+    left: 15px;
+   }
+
+   /* Pagination */
+   .eurolit-slider .swiper-pagination {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+   }
+
+   .eurolit-slider .swiper-pagination-bullet {
+    background: rgba(255,255,255,0.7);
+    opacity: 1;
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+   }
+
+   .eurolit-slider .swiper-pagination-bullet:hover {
+    background: rgba(255,255,255,0.9);
+    transform: scale(1.2);
+   }
+
+   .eurolit-slider .swiper-pagination-bullet-active {
+    background: var(--white);
+    border-color: var(--primary-color);
+    transform: scale(1.3);
+   }
+
+
+
+   /* Main Content */
+   #main-content {
+    background: var(--white);
+    min-height: 100vh;
+   }
+
+   .content-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 60px 20px;
+   }
+
+   /* Hero Section */
+   .hero-section {
+    text-align: center;
+    margin-bottom: 50px;
+   }
+
+   .hero-section h2 {
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 600;
+   }
+
+   .hero-section h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+   }
+
+   .hero-section h2 a:hover {
+    text-decoration: underline;
+   }
+
+   /* Services Grid */
+   .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+   }
+
+   .service-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-align: center;
+    border: 1px solid #f0f0f0;
+   }
+
+   .service-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+   }
+
+   .service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+   }
+
+   .service-card h3 {
+    color: var(--text-color);
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+   }
+
+   .service-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 25px;
+   }
+
+   .service-card .btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+   }
+
+   .service-card .btn:hover {
+    background: #003875;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+   }
+
+   /* Responsive Breakpoints */
+   @media (max-width: 768px) {
+    .header-top .container {
+     flex-direction: column;
+     gap: 15px;
+     text-align: center;
+    }
+
+    .company-info {
+     text-align: center;
+    }
+
+    .company-info h1 {
+     font-size: 14px;
+    }
+
+    .company-info p {
+     font-size: 12px;
+    }
+
+    .nav-menu {
+     display: none;
+     flex-direction: column;
+     position: absolute;
+     top: 100%;
+     left: 0;
+     right: 0;
+     background: var(--primary-color);
+     box-shadow: var(--shadow);
+     z-index: 1000;
+    }
+
+    .nav-menu.active {
+     display: flex;
+    }
+
+    .nav-menu li a {
+     padding: 20px;
+     border-bottom: 1px solid rgba(255,255,255,0.1);
+     font-size: 16px;
+     min-height: 44px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+
+    .mobile-menu-toggle {
+     display: block;
+     min-height: 44px;
+     min-width: 44px;
+    }
+
+    .main-nav {
+     position: relative;
+     justify-content: space-between;
+     padding: 0 20px;
+    }
+
+    .slider-container {
+     padding: 0 15px;
+    }
+
+    .eurolit-slider {
+     height: 300px; /* Fallback */
+     aspect-ratio: 4/3;
+    }
+
+    @supports (aspect-ratio: 4/3) {
+     .eurolit-slider {
+      height: auto;
+     }
+    }
+
+    .eurolit-slider .swiper-button-next,
+    .eurolit-slider .swiper-button-prev {
+     width: 44px;
+     height: 44px;
+     margin-top: -22px;
+    }
+
+    .eurolit-slider .swiper-button-next::after,
+    .eurolit-slider .swiper-button-prev::after {
+     font-size: 14px;
+    }
+
+    .eurolit-slider .swiper-button-next {
+     right: 10px;
+    }
+
+    .eurolit-slider .swiper-button-prev {
+     left: 10px;
+    }
+
+    .content-container {
+     padding: 40px 20px;
+    }
+
+    .services-grid {
+     grid-template-columns: 1fr;
+     gap: 30px;
+    }
+
+    .service-card {
+     padding: 25px;
+    }
+
+    .service-card img {
+     height: 180px;
+    }
+
+    .hero-section h2 {
+     font-size: 24px;
+    }
+
+    .service-card .btn {
+     min-height: 44px;
+     padding: 15px 30px;
+    }
+   }
+
+   @media (max-width: 480px) {
+    .container {
+     padding: 0 15px;
+    }
+
+    .country-flags {
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 6px;
+    }
+
+    #slider-section {
+     padding: 15px 0;
+    }
+
+    .slider-container {
+     padding: 0 10px;
+    }
+
+    .eurolit-slider {
+     height: 250px; /* Fallback */
+     aspect-ratio: 1/1;
+     border-radius: 6px;
+    }
+
+    @supports (aspect-ratio: 1/1) {
+     .eurolit-slider {
+      height: auto;
+     }
+    }
+
+    .eurolit-slider .swiper-button-next,
+    .eurolit-slider .swiper-button-prev {
+     width: 40px;
+     height: 40px;
+     margin-top: -20px;
+    }
+
+    .eurolit-slider .swiper-button-next::after,
+    .eurolit-slider .swiper-button-prev::after {
+     font-size: 12px;
+    }
+
+    .eurolit-slider .swiper-button-next {
+     right: 8px;
+    }
+
+    .eurolit-slider .swiper-button-prev {
+     left: 8px;
+    }
+
+    .eurolit-slider .swiper-pagination-bullet {
+     width: 8px;
+     height: 8px;
+     margin: 0 3px;
+    }
+
+    .content-container {
+     padding: 30px 15px;
+    }
+
+    .service-card {
+     padding: 20px;
+    }
+
+    .service-card img {
+     height: 160px;
+    }
+
+    .hero-section h2 {
+     font-size: 20px;
+    }
+
+    .service-card h3 {
+     font-size: 16px;
+    }
+
+    .service-card p {
+     font-size: 14px;
+    }
+   }
+
+   @media (max-width: 320px) {
+    .service-card {
+     padding: 15px;
+    }
+
+    .company-info h1 {
+     font-size: 12px;
+    }
+
+    .company-info p {
+     font-size: 11px;
+    }
+
+    .country-flags img {
+     width: 20px;
+     height: 14px;
+    }
+   }
+
+   /* Footer Styles */
+   .site-footer {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0;
+    margin-top: 60px;
+   }
+
+   .footer-content {
+    text-align: center;
+   }
+
+   .footer-info p {
+    margin: 0;
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+   }
+
+   @media (max-width: 768px) {
+    .site-footer {
+     padding: 30px 0;
+     margin-top: 40px;
+    }
+
+    .footer-info p {
+     font-size: 12px;
+    }
+   }
+  </style>
   <link href="css/default.css" id="skins-switcher" rel="stylesheet" type="text/css"/>
   <link href="css/style-switcher.css" rel="stylesheet" type="text/css"/>
-  <link href="css/nivo-slider.css" media="screen" rel="stylesheet" type="text/css"/>
   <script type="application/ld+json">
    {
   "@context": "https://schema.org",
@@ -91,239 +718,195 @@
  <body>
   <div id="wrapper">
    <header id="site-header">
-    <div id="wrapper-top">
-     <div id="top">
-      <div id="top-left">
+    <!-- Header Top Section -->
+    <div class="header-top">
+     <div class="container">
+      <div class="logo-section">
        <a href="index.html">
-        <img alt="" src="images/logo.png" style="margin-top:20px;"/>
+        <img alt="Eurolit Logo" src="images/logo.png"/>
        </a>
-       <div style="margin-left:208px; float:left; width:740px; margin-top:-60px; ">
-        <a href="contact.html" style="float: right;margin-top: -10px;width: 30px;position: relative;left: -38px;" target="">
-         <img alt="" height="20" src="images/kuwait-fl.png"/>
+      </div>
+
+      <div class="company-info">
+       <h1>Specialists In Industrial Flooring</h1>
+       <p>Consulting - Project Management - Construction</p>
+       <div class="country-flags">
+        <a href="contact.html" title="Greece">
+         <img alt="Greece" src="images/Greece-Flag.png"/>
         </a>
-        <a href="contact.html" style="margin-top:-10px; float:right; margin-right:48px; width: 30px;" target="">
-         <img alt="" height="20" src="images/oman.gif"/>
+        <a href="contact.html" title="Saudi Arabia">
+         <img alt="Saudi Arabia" src="images/eurolitsaudi.gif"/>
         </a>
-        <a href="contact.html" style="margin-top:-10px; float:right; margin-right:10px; width:30px;" target="">
-         <img alt="" height="20" src="images/egypt.jpg"/>
+        <a href="contact.html" title="Egypt">
+         <img alt="Egypt" src="images/egypt.jpg"/>
         </a>
-        <a href="contact.html" style="margin-top:-10px; float:right; margin-right:10px; width:30px;" target="">
-         <img alt="" height="20" src="images/eurolitsaudi.gif"/>
+        <a href="contact.html" title="Oman">
+         <img alt="Oman" src="images/oman.gif"/>
         </a>
-        <a href="contact.html" style="margin-top:-10px; float:right; margin-right:10px; width:30px;" target="">
-         <img alt="" height="20" src="images/Greece-Flag.png"/>
+        <a href="contact.html" title="Kuwait">
+         <img alt="Kuwait" src="images/kuwait-fl.png"/>
         </a>
-       </div>
-       <div style="margin-left:220px; float:left; width:740px; margin-top:-55px; ">
-        <p style="color:#004B99; font-size:16px; margin-top:10px; font-weight:bold;padding-left:445px;">
-         Specialists In Industrial Flooring
-        </p>
-        <p style="color:#004B99; font-weight:bold; margin-top:-20px; font-size:16px;padding-left:325px; ">
-         Consulting - Project Management - Construction
-        </p>
        </div>
       </div>
-      <!-- #top-left -->
      </div>
     </div>
-    <!-- #wrapper-top -->
-    <div class="height" id="wrapper-header">
-     <div id="header2">
-      <nav aria-label="Primary navigation" class="tabsmenuclass" id="mytabsmenu">
-       <ul>
-        <li style="margin-left:-5px;">
-         <a class="drop" href="index.html" style="margin-left:0px; background-image: url('images/verticalrule.gif');">
-          Home
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="about.html" style="background-image: url('images/verticalrule.gif');">
-          About us
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="why_eurolit.html" style="background-image: url('images/verticalrule.gif');">
-          Why Eurolit
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="flatness.html" style="background-image: url('images/verticalrule.gif');">
-          Flatness
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="press.html" style="background-image: url('images/verticalrule.gif');">
-          Press
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="projects.html" style="background-image: url('images/verticalrule.gif');">
-          Projects
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="partners.html" style="background-image: url('images/verticalrule.gif'); ">
-          Partners
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="videos.html" style="background-image: url('images/verticalrule.gif'); ">
-          Videos
-         </a>
-        </li>
-        <li>
-         <a class="drop" href="contact.html">
-          Contact
-         </a>
-        </li>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+     <div class="container">
+      <div class="nav-container">
+       <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="why_eurolit.html">Why Eurolit</a></li>
+        <li><a href="flatness.html">Flatness</a></li>
+        <li><a href="press.html">Press</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="partners.html">Partners</a></li>
+        <li><a href="videos.html">Videos</a></li>
+        <li><a href="contact.html">Contact</a></li>
        </ul>
-      </nav>
-      <div id="slider-container">
-       <div id="slider">
-        <a>
-         <img alt="" src="images/slider/slide1.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slideA1.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slideA2.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide3.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide2.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide6.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide4.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide7.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide8.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide9.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide11.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide12.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide13.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide14.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide15.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide16.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide17.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide18.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide19.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide20.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide22.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide23.jpg"/>
-        </a>
-        <a>
-         <img alt="" src="images/slider/slide24.jpg"/>
-        </a>
-       </div>
+       <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        ☰
+       </button>
       </div>
      </div>
-    </div>
+    </nav>
    </header>
+   <section id="slider-section">
+    <div class="slider-container">
+     <div class="swiper eurolit-slider">
+      <div class="swiper-wrapper">
+       <div class="swiper-slide">
+        <img alt="Eurolit industrial flooring project showcase" src="images/slider/slide1.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Modern industrial flooring construction" src="images/slider/slideA1.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Professional flooring installation process" src="images/slider/slideA2.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="High-quality concrete floor finishing" src="images/slider/slide3.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Industrial warehouse flooring project" src="images/slider/slide2.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Specialized flooring technology application" src="images/slider/slide6.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Expert flooring consultation and design" src="images/slider/slide4.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Advanced flooring construction techniques" src="images/slider/slide7.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Precision flooring installation work" src="images/slider/slide8.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Completed industrial flooring project" src="images/slider/slide9.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Professional flooring project management" src="images/slider/slide11.jpg"/>
+       </div>
+       <div class="swiper-slide">
+        <img alt="Quality industrial flooring solutions" src="images/slider/slide12.jpg"/>
+       </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+     </div>
+    </div>
+   </section>
    <main id="main-content" role="main">
-    <div id="wrapper-content" style="">
-     <article id="content" style="z-index:999;">
+    <div class="content-container">
+     <section class="hero-section">
       <h2>
        <a href="vna.html">
         New: VNA Warehouse Efficiency
        </a>
       </h2>
-      <p>
-      </p>
-      <div class="one_third">
-       <a href="historic.html">
-        <img alt="" class="frame" src="images/content/pic1.jpg"/>
-        <p style="color:#58585a; font-size:14px;">
-         Consulting
-        </p>
-        <p>
-         Eurolit is able to offer expert advice to the investor and designer when choosing the most suitable industrial flooring system, providing a tailor made solution specifically designed for the projects needs, ranging from structural and concrete mix design to surface regularity surveying.
-        </p>
-       </a>
-       <a class="button" href="historic.html" style="margin-top:40px;">
-        More Info →
-       </a>
-      </div>
-      <div class="one_third">
-       <a href="project_managment.html">
-        <img alt="" class="frame" src="images/content/pic2.jpg"/>
-        <p style="color:#58585a; font-size:14px;">
-         Project Management
-        </p>
-        <p>
-         Eurolit is able to extend its consulting services and offer part time or full time supervision, advice on material selection  and offer detailed know-how resulting in flawless operation of the facility in question.
-        </p>
-       </a>
-       <a class="button" href="project_managment.html" style="margin-top:60px;">
-        More Info →
-       </a>
-      </div>
-      <div class="one_third last">
-       <a href="construction.html">
-        <img alt="" class="frame" src="images/content/pic3.jpg"/>
-        <p style="color:#58585a; font-size:14px;">
-         Construction
-        </p>
-        <p>
-         Eurolit provides a full range of high quality and cost effective industrial flooring construction services for production areas, modern logistics centers but also shopping centers and museums. We are also able to refurbish, repair and upgrade existing floors in order to meet modern specifications. We specialize in concrete floors, magnesite screeds and diamond polished floors.
-        </p>
-       </a>
-       <a class="button" href="construction.html">
-        More Info →
-       </a>
-      </div>
-     </article>
+     </section>
+
+     <section class="services-grid">
+      <article class="service-card">
+       <img alt="Industrial Flooring Consulting Services" src="images/content/pic1.jpg"/>
+       <h3>Consulting</h3>
+       <p>
+        Eurolit is able to offer expert advice to the investor and designer when choosing the most suitable industrial flooring system, providing a tailor made solution specifically designed for the projects needs, ranging from structural and concrete mix design to surface regularity surveying.
+       </p>
+       <a class="btn" href="consulting.html">More Info →</a>
+      </article>
+
+      <article class="service-card">
+       <img alt="Project Management for Industrial Flooring" src="images/content/pic2.jpg"/>
+       <h3>Project Management</h3>
+       <p>
+        Eurolit is able to extend its consulting services and offer part time or full time supervision, advice on material selection and offer detailed know-how resulting in flawless operation of the facility in question.
+       </p>
+       <a class="btn" href="project_managment.html">More Info →</a>
+      </article>
+
+      <article class="service-card">
+       <img alt="Industrial Flooring Construction Services" src="images/content/pic3.jpg"/>
+       <h3>Construction</h3>
+       <p>
+        Eurolit provides a full range of high quality and cost effective industrial flooring construction services for production areas, modern logistics centers but also shopping centers and museums. We are also able to refurbish, repair and upgrade existing floors in order to meet modern specifications. We specialize in concrete floors, magnesite screeds and diamond polished floors.
+       </p>
+       <a class="btn" href="construction.html">More Info →</a>
+      </article>
+     </section>
     </div>
    </main>
-   <div class="clear">
-   </div>
   </div>
-  <div id="wrapper-bottom">
-  </div>
-  <footer id="wrapper-footer-text">
-   <div id="footer-text">
-    <div id="footnav">
-     <!-- 
-					<div id="impel" style="margin-top:19px;margin-left:-200px;"><a href="http://www.impel.gr/" title="impel" target="_blank">impel</a></div>-->
-    </div>
-    <div id="copyright">
-     Copyright ©2012-2020 EUROLIT - Official Page.  All Rights Reserved
+
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-info">
+      <p>&copy; 2012-2024 EUROLIT - Official Page. All Rights Reserved</p>
+     </div>
     </div>
    </div>
   </footer>
- </body>
+ <script>
+  // Mobile menu functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (mobileMenuToggle && navMenu) {
+      mobileMenuToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+
+        // Update button text and aria-expanded
+        const isOpen = navMenu.classList.contains('active');
+        mobileMenuToggle.innerHTML = isOpen ? '✕' : '☰';
+        mobileMenuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!event.target.closest('.main-nav')) {
+          navMenu.classList.remove('active');
+          mobileMenuToggle.innerHTML = '☰';
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close menu when pressing Escape
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          mobileMenuToggle.innerHTML = '☰';
+          mobileMenuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenuToggle.focus();
+        }
+      });
+    }
+  });
+ </script>
+</body>
 </html>

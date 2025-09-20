@@ -109,7 +109,7 @@
         //Process initial  caption
         if(vars.currentImage.attr('title') != ''){
             var title = vars.currentImage.attr('title');
-            if(title.substr(0,1) == '#') title = $(title).html();
+            if(title && title.substr(0,1) == '#') title = $(title).html();
             $('.nivo-caption p', slider).html(title);					
             $('.nivo-caption', slider).fadeIn(settings.animSpeed);
         }
@@ -307,7 +307,7 @@
 			//Process caption
 			if(vars.currentImage.attr('title') != ''){
                 var title = vars.currentImage.attr('title');
-                if(title.substr(0,1) == '#') title = $(title).html();	
+                if(title && title.substr(0,1) == '#') title = $(title).html();	
                     
 				if($('.nivo-caption', slider).css('display') == 'block'){
 					$('.nivo-caption p', slider).fadeOut(settings.animSpeed, function(){

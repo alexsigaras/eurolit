@@ -1,26 +1,91 @@
 // Jquery with no conflict
 jQuery(document).ready(function($) {
 	
-	// nivo slider ------------------------------------------------------ //
-	
-	$('#slider').nivoSlider({
-		effect:'random', //Specify sets like: 'fold,fade,sliceDown'
-        slices:15,
-        animSpeed:500, //Slide transition speed
-        pauseTime:3000,
-        startSlide:0, //Set starting Slide (0 index)
-        directionNav:true, //Next & Prev
-        directionNavHide:true, //Only show on hover
-        controlNav:true, //1,2,3...
-        controlNavThumbs:false, //Use thumbnails for Control Nav
-        controlNavThumbsFromRel:false, //Use image rel for thumbs
-        controlNavThumbsSearch: '.jpg', //Replace this with...
-        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
-        keyboardNav:true, //Use left & right arrows
-        pauseOnHover:true, //Stop animation while hovering
-        manualAdvance: false, //Force manual transitions
-        captionOpacity:0.7 //Universal caption opacity
-	});
+	// Modern Responsive Carousel ------------------------------------------------------ //
+
+	// Initialize carousel only if element exists
+	const carouselElement = document.querySelector('.eurolit-slider');
+	if (carouselElement) {
+		const swiper = new Swiper('.eurolit-slider', {
+			// Smooth slide transition
+			effect: 'slide',
+			speed: 600,
+
+			// Auto-play settings
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,
+			},
+
+			// Loop through slides
+			loop: true,
+
+
+			// Navigation
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+
+			// Pagination
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+				dynamicBullets: true,
+				dynamicMainBullets: 5,
+			},
+
+			// Keyboard navigation
+			keyboard: {
+				enabled: true,
+				onlyInViewport: true,
+			},
+
+			// Touch/swipe settings
+			touchRatio: 1,
+			touchAngle: 45,
+			grabCursor: true,
+
+			// Responsive breakpoints
+			breakpoints: {
+				320: {
+					spaceBetween: 10,
+					slidesPerView: 1,
+				},
+				768: {
+					spaceBetween: 20,
+					slidesPerView: 1,
+				},
+				1024: {
+					spaceBetween: 30,
+					slidesPerView: 1,
+				}
+			},
+
+			// Events
+			on: {
+				slideChange: function () {
+					// Optional: Add analytics tracking here
+					// console.log('Slide changed to:', this.activeIndex);
+				}
+			}
+		});
+
+		// Pause autoplay when page is not visible
+		document.addEventListener('visibilitychange', function() {
+			if (document.hidden) {
+				swiper.autoplay.stop();
+			} else {
+				swiper.autoplay.start();
+			}
+		});
+
+		// Handle reduced motion preference
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+			swiper.autoplay.stop();
+		}
+	}
 	
 	// Poshytips ------------------------------------------------------ //
 	
