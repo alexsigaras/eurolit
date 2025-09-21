@@ -1,3 +1,52 @@
+# Robots.txt for Eurolit - Industrial Flooring Services
+# Updated: 2024-09-21
+
+# Allow all search engines to access the site
 User-agent: *
 Allow: /
+
+# Block access to development/admin directories and files
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.claude/
+Disallow: /cdn-cgi/
+Disallow: /css/
+Disallow: /js/
+Disallow: /assets/
+
+# Block access to backup and temporary files
+Disallow: *.bak$
+Disallow: *.tmp$
+Disallow: *.backup$
+Disallow: *~$
+
+# Block access to sensitive files
+Disallow: /.htaccess
+Disallow: /.htpasswd
+Disallow: /README.md
+Disallow: /CHANGELOG.md
+Disallow: /package.json
+Disallow: /package-lock.json
+
+# Allow CSS and JS files for proper page rendering
+User-agent: *
+Allow: /css/*.css
+Allow: /js/*.js
+Allow: /assets/icons/
+Allow: /images/
+
+# Specific crawl delays for different search engines
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 2
+
+User-agent: Slurp
+Crawl-delay: 2
+
+# Sitemap location
 Sitemap: https://www.eurolit.gr/sitemap.xml
+
+# Additional useful information for crawlers
+# Host: www.eurolit.gr
