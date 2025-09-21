@@ -412,6 +412,55 @@
     }
    }
 
+   /* Flatness Menu Styles */
+   .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   }
+
+   .menu li {
+    margin-bottom: 2px;
+   }
+
+   .menu li a {
+    display: block;
+    padding: 12px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+   }
+
+   .menu li a:hover {
+    background: rgba(0, 75, 153, 0.1);
+    color: var(--primary-color);
+    border-left-color: rgba(0, 75, 153, 0.3);
+   }
+
+   .menu li.active a {
+    background: var(--primary-color);
+    color: var(--white);
+    border-left-color: #003366;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+   }
+
+   .menu li.active a:hover {
+    background: #003d7a;
+    color: var(--white);
+   }
+
+   @media (max-width: 768px) {
+    .menu li a {
+     padding: 14px 16px;
+     font-size: 15px;
+    }
+   }
+
    /* Footer Styles */
    .site-footer {
     background: var(--primary-color);
@@ -464,28 +513,42 @@
   </script>
   <script type="text/javascript">
    $(document).ready(function() {
-     // Show the first section by default
-     $('.content-section').hide();
-     $('#importance-section').show();
-     $('.menu li').removeClass('active');
-     $('.menu li:first').addClass('active');
-
-     // Handle menu clicks
-     $('.menu a').click(function(e) {
-       e.preventDefault();
-
-       // Remove active class from all menu items
-       $('.menu li').removeClass('active');
-
-       // Add active class to clicked item
-       $(this).parent().addClass('active');
+     // Function to show section based on hash
+     function showSectionFromHash() {
+       var hash = window.location.hash || '#importance';
+       var target = hash.replace('#', '') + '-section';
 
        // Hide all content sections
        $('.content-section').hide();
 
-       // Show the target section
-       var target = $(this).attr('href').replace('#', '') + '-section';
-       $('#' + target).show();
+       // Show the target section (fallback to importance if not found)
+       if ($('#' + target).length) {
+         $('#' + target).show();
+       } else {
+         $('#importance-section').show();
+         hash = '#importance';
+       }
+
+       // Update active menu item
+       $('.menu li').removeClass('active');
+       $('.menu a[href="' + hash + '"]').parent().addClass('active');
+     }
+
+     // Show section on page load
+     showSectionFromHash();
+
+     // Handle menu clicks
+     $('.menu a').click(function(e) {
+       // Don't prevent default - allow URL hash to update
+       var hash = $(this).attr('href');
+
+       // Update URL hash (this will trigger hashchange event)
+       window.location.hash = hash;
+     });
+
+     // Handle browser back/forward and direct hash navigation
+     $(window).on('hashchange', function() {
+       showSectionFromHash();
      });
    });
   </script>
