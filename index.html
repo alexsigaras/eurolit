@@ -270,17 +270,17 @@
    .eurolit-slider .swiper-button-prev {
     color: var(--primary-color);
     background: rgba(255,255,255,0.95);
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    margin-top: -28px;
+    margin-top: -32px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     backdrop-filter: blur(10px);
-    /* Ensure minimum touch target size */
-    min-width: 48px;
-    min-height: 48px;
+    /* Ensure minimum touch target size exceeds 48px */
+    min-width: 64px;
+    min-height: 64px;
    }
 
    .eurolit-slider .swiper-button-next::after,
@@ -321,27 +321,33 @@
     opacity: 1;
     width: 16px;
     height: 16px;
-    margin: 0 8px;
+    margin: 0 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
     cursor: pointer;
-    /* Ensure adequate touch target spacing and size */
     position: relative;
+    /* Make the actual clickable area 48px minimum */
+    min-width: 48px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
    }
 
-   /* Expand touch area without changing visual appearance */
-   .eurolit-slider .swiper-pagination-bullet::before {
+   /* Visual bullet inside the touch target */
+   .eurolit-slider .swiper-pagination-bullet::after {
     content: '';
     position: absolute;
-    top: -16px;
-    left: -16px;
-    right: -16px;
-    bottom: -16px;
-    /* Creates 48px total touch target (16px + 32px padding) */
+    width: 16px;
+    height: 16px;
+    background: inherit;
+    border: inherit;
+    border-radius: 50%;
+    transition: inherit;
    }
 
-   .eurolit-slider .swiper-pagination-bullet:hover,
-   .eurolit-slider .swiper-pagination-bullet:focus {
+   .eurolit-slider .swiper-pagination-bullet:hover::after,
+   .eurolit-slider .swiper-pagination-bullet:focus::after {
     background: rgba(255,255,255,0.9);
     transform: scale(1.2);
    }
@@ -351,7 +357,7 @@
     outline-offset: 2px;
    }
 
-   .eurolit-slider .swiper-pagination-bullet-active {
+   .eurolit-slider .swiper-pagination-bullet-active::after {
     background: var(--white);
     border-color: var(--primary-color);
     transform: scale(1.25);
@@ -632,16 +638,15 @@
     .eurolit-slider .swiper-pagination-bullet {
      width: 12px;
      height: 12px;
-     margin: 0 6px;
-     /* Maintain adequate touch target even on small screens */
+     margin: 0 8px;
+     /* Maintain 48px touch target on mobile */
+     min-width: 48px;
+     min-height: 48px;
     }
 
-    .eurolit-slider .swiper-pagination-bullet::before {
-     top: -18px;
-     left: -18px;
-     right: -18px;
-     bottom: -18px;
-     /* Creates 48px total touch target for mobile (12px + 36px padding) */
+    .eurolit-slider .swiper-pagination-bullet::after {
+     width: 12px;
+     height: 12px;
     }
 
     .content-container {
@@ -800,47 +805,47 @@
    <section id="slider-section">
     <div class="slider-container">
      <div class="swiper eurolit-slider" role="region" aria-label="Image carousel showcasing Eurolit's industrial flooring projects">
-      <div class="swiper-wrapper">
-       <div class="swiper-slide">
+      <div class="swiper-wrapper" role="group" aria-label="Carousel slides">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 1 of 12">
         <img alt="Eurolit industrial flooring project showcase" src="images/slider/slide1.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 2 of 12">
         <img alt="Modern industrial flooring construction" src="images/slider/slideA1.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 3 of 12">
         <img alt="Professional flooring installation process" src="images/slider/slideA2.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 4 of 12">
         <img alt="High-quality concrete floor finishing" src="images/slider/slide3.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 5 of 12">
         <img alt="Industrial warehouse flooring project" src="images/slider/slide2.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 6 of 12">
         <img alt="Specialized flooring technology application" src="images/slider/slide6.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 7 of 12">
         <img alt="Expert flooring consultation and design" src="images/slider/slide4.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 8 of 12">
         <img alt="Advanced flooring construction techniques" src="images/slider/slide7.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 9 of 12">
         <img alt="Precision flooring installation work" src="images/slider/slide8.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 10 of 12">
         <img alt="Completed industrial flooring project" src="images/slider/slide9.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 11 of 12">
         <img alt="Professional flooring project management" src="images/slider/slide11.jpg"/>
        </div>
-       <div class="swiper-slide">
+       <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label="Slide 12 of 12">
         <img alt="Quality industrial flooring solutions" src="images/slider/slide12.jpg"/>
        </div>
       </div>
       <div class="swiper-pagination" role="tablist" aria-label="Carousel slide indicators"></div>
-      <div class="swiper-button-next" aria-label="Next slide" role="button" tabindex="0"></div>
-      <div class="swiper-button-prev" aria-label="Previous slide" role="button" tabindex="0"></div>
+      <div class="swiper-button-next" aria-label="Next slide" role="button" tabindex="0" title="Next slide"></div>
+      <div class="swiper-button-prev" aria-label="Previous slide" role="button" tabindex="0" title="Previous slide"></div>
      </div>
     </div>
    </section>
