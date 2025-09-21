@@ -165,6 +165,8 @@
     display: flex;
     gap: 8px;
     align-items: center;
+    justify-content: flex-end;
+    margin-top: 8px;
    }
 
    .country-flags img {
@@ -866,12 +868,18 @@
    <div class="container">
     <div class="footer-content">
      <div class="footer-info">
-      <p>&copy; 2012-2024 EUROLIT - Official Page. All Rights Reserved</p>
+      <p>&copy; 2012-<span id="current-year">2024</span> EUROLIT - Official Page. All Rights Reserved</p>
      </div>
     </div>
    </div>
   </footer>
  <script>
+  // Update copyright year to current year
+  const currentYearElement = document.getElementById('current-year');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+
   // Mobile menu functionality
   document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
