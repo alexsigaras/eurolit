@@ -33,6 +33,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!--CSS-->
+  <meta content="inline; filename=./assets/documents/static.pdf" name="content-disposition"/>
   <link href="css/eurolit-consolidated.css" rel="stylesheet" type="text/css"/>
   <!--Javascript-->
   <link href="css/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css"/>
@@ -280,6 +281,34 @@
      font-size: 12px;
     }
    }
+   /* Projects Menu Styles */
+   .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   }
+   .menu li {
+    margin-bottom: 2px;
+   }
+   .menu li a {
+    display: block;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+   }
+   .menu li a:hover {
+    background: #e0e0e0;
+    transform: translateX(5px);
+   }
+   .menu li.active a {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateX(5px);
+   }
   </style>
   <script type="application/ld+json">
    {
@@ -362,7 +391,7 @@
    <main id="main-content" role="main">
     <div id="wrapper-content">
      <article id="content">
-      <div id="main" style="height:auto; min-height:640px;">
+      <div id="main" style="height:auto; min-height:700px;">
        <div id="sidebar">
         <h2 class="widget-title">
          Construction
@@ -385,37 +414,60 @@
              Diamond Polished Concrete
             </a>
            </li>
+           <li>
+            <a href="#construction-process">
+             Construction Process
+            </a>
+           </li>
+           <li>
+            <a href="#quality-control">
+             Quality Control
+            </a>
+           </li>
+           <li>
+            <a href="#construction-joints">
+             Construction Joints
+            </a>
+           </li>
+           <li>
+            <a href="#jointless-floors">
+             Jointless Floors
+            </a>
+           </li>
+           <li>
+            <a href="#surface-treatment">
+             Surface Treatment
+            </a>
+           </li>
           </ul>
          </div>
         </div>
-        <ul>
-         <li class="widget-container" id="latest-post" style=" margin-top:120px;  border-right:1px solid #E4E4E4 ; ">
           <ul>
-           <li>
-            <a href="consulting.html">
-             <img alt="" class="frame alignleft" src="images/content/pic1S.jpg"/>
-             <p style="text decoration:underline; font-weight:bold; font-size:14px;">
-              Consulting
-             </p>
-             <p>
-              Eurolit is able to offer expert advice to the investor and designer when choosing the most suitable industrial flooring system, providing a tailor made solution specifically designed for the projects needs, ranging from structural and concrete mix design to surface regularity surveying.
-             </p>
-            </a>
-           </li>
-           <li>
-            <a href="project_managment.html">
-             <img alt="" class="frame alignleft" src="images/content/rp1.jpg"/>
-             <p style="text decoration:underline; font-weight:bold; font-size:14px;">
-              Project Management
-             </p>
-             <p>
-              Eurolit is able to extend its consulting services and offer part time or full time supervision, advice on material selection and offer detailed know-how resulting in flawless operation of the facility in question.
-             </p>
-            </a>
+           <li class="widget-container" id="latest-post" style=" margin-top:20px;  border-right:1px solid #E4E4E4 ; ">
+            <ul>
+             <li>
+              <a href="consulting.html" style="border-right:none;">
+               <img alt="" class="frame alignleft" src="images/content/pic1S.jpg" style="margin-top:-0px;"/>
+               <p style="font-weight:bold; font-size:14px;">
+                Consulting
+               </p>
+              </a>
+              <p>
+              </p>
+             </li>
+             <li>
+              <a href="project_managment.html" style="border-right:none;">
+               <img alt="" class="frame alignleft" src="images/content/rp1.jpg" style="margin-top:-0px;"/>
+               <p style=" font-weight:bold; font-size:14px;">
+                Project Management
+               </p>
+              </a>
+              <p>
+              </p>
+             </li>
+            </ul>
            </li>
           </ul>
-         </li>
-        </ul>
        </div>
        <!-- #sidebar -->
        <div id="maincontent">
@@ -576,6 +628,156 @@
            <img alt="" src="images/construction/diamond/grade/7s.jpg" style="  margin-right:0px;"/>
           </a>
          </div>
+        </div>
+
+        <!-- Construction Process Section -->
+        <div id="construction-process-section" class="content-section" style="display:none;">
+         <a name="construction-process" id="construction-process"></a>
+         <h2>Construction Process</h2>
+         <p>
+          Eurolit follows a systematic construction process to ensure the highest quality industrial floors. Our approach combines modern techniques with proven methodologies for optimal results.
+         </p>
+         <h3>Pre-Construction Phase</h3>
+         <p>
+          • Site assessment and soil analysis<br>
+          • Detailed planning and specification review<br>
+          • Material procurement and quality verification<br>
+          • Equipment mobilization and team preparation
+         </p>
+         <h3>Construction Phase</h3>
+         <p>
+          • Substrate preparation and leveling<br>
+          • Reinforcement installation (steel fiber or mesh)<br>
+          • Concrete placement and finishing<br>
+          • Curing and quality control testing
+         </p>
+         <h3>Post-Construction</h3>
+         <p>
+          • Final inspection and documentation<br>
+          • Flatness surveying and compliance verification<br>
+          • Handover and maintenance guidelines<br>
+          • Ongoing support and warranty service
+         </p>
+        </div>
+
+        <!-- Quality Control Section -->
+        <div id="quality-control-section" class="content-section" style="display:none;">
+         <a name="quality-control" id="quality-control"></a>
+         <h2>Quality Control</h2>
+         <p>
+          Quality control is integral to every Eurolit construction project. We implement rigorous testing and monitoring procedures throughout the construction process.
+         </p>
+         <h3>Material Testing</h3>
+         <p>
+          • Concrete mix design verification<br>
+          • Steel fiber distribution analysis<br>
+          • Admixture compatibility testing<br>
+          • Aggregate quality assessment
+         </p>
+         <h3>Construction Monitoring</h3>
+         <p>
+          • Real-time concrete temperature monitoring<br>
+          • Slump and consistency testing<br>
+          • Placement rate and timing control<br>
+          • Environmental condition documentation
+         </p>
+         <h3>Final Verification</h3>
+         <p>
+          • Core strength testing<br>
+          • Surface hardness measurement<br>
+          • Flatness surveying (FM/FF values)<br>
+          • Crack inspection and documentation
+         </p>
+        </div>
+
+        <!-- Construction Joints Section -->
+        <div id="construction-joints-section" class="content-section" style="display:none;">
+         <a name="construction-joints" id="construction-joints"></a>
+         <h2>Construction Joints</h2>
+         <p>
+          Proper joint design and construction is critical for long-term floor performance. Eurolit specializes in advanced joint solutions for industrial facilities.
+         </p>
+         <h3>Joint Types</h3>
+         <p>
+          • <strong>Construction Joints:</strong> Planned breaks in concrete placement<br>
+          • <strong>Control Joints:</strong> Controlled crack induction joints<br>
+          • <strong>Isolation Joints:</strong> Separation from structural elements<br>
+          • <strong>Expansion Joints:</strong> Movement accommodation joints
+         </p>
+         <h3>Joint Design Considerations</h3>
+         <p>
+          • Traffic loading and wheel loads<br>
+          • Environmental temperature variations<br>
+          • Subgrade conditions and movement<br>
+          • Facility operational requirements
+         </p>
+         <h3>Installation & Sealing</h3>
+         <p>
+          • Precise cutting and forming techniques<br>
+          • Load transfer device installation<br>
+          • Appropriate sealant selection<br>
+          • Long-term maintenance planning
+         </p>
+        </div>
+
+        <!-- Jointless Floors Section -->
+        <div id="jointless-floors-section" class="content-section" style="display:none;">
+         <a name="jointless-floors" id="jointless-floors"></a>
+         <h2>Jointless Floors</h2>
+         <p>
+          Eurolit specializes in jointless industrial floors that eliminate maintenance issues associated with traditional joints while providing superior performance for high-traffic facilities.
+         </p>
+         <h3>Advantages of Jointless Design</h3>
+         <p>
+          • Reduced maintenance requirements<br>
+          • Improved hygiene and cleanability<br>
+          • Enhanced durability and longevity<br>
+          • Superior ride quality for material handling equipment
+         </p>
+         <h3>Construction Methodology</h3>
+         <p>
+          • Steel fiber reinforced concrete systems<br>
+          • Continuous placement techniques<br>
+          • Advanced curing methods<br>
+          • Post-tensioning applications where required
+         </p>
+         <h3>Applications</h3>
+         <p>
+          • High-bay VNA warehouses<br>
+          • Food processing facilities<br>
+          • Pharmaceutical manufacturing<br>
+          • Clean room environments
+         </p>
+        </div>
+
+        <!-- Surface Treatment Section -->
+        <div id="surface-treatment-section" class="content-section" style="display:none;">
+         <a name="surface-treatment" id="surface-treatment"></a>
+         <h2>Surface Treatment</h2>
+         <p>
+          Surface treatment is crucial for achieving the desired performance characteristics of industrial floors. Eurolit offers comprehensive surface treatment solutions.
+         </p>
+         <h3>Treatment Options</h3>
+         <p>
+          • <strong>Diamond Polishing:</strong> High-gloss, durable finish<br>
+          • <strong>Chemical Hardeners:</strong> Increased surface density<br>
+          • <strong>Topical Sealers:</strong> Protection and dust reduction<br>
+          • <strong>Anti-slip Treatments:</strong> Enhanced safety surfaces
+         </p>
+         <h3>Performance Benefits</h3>
+         <p>
+          • Improved abrasion resistance<br>
+          • Reduced dusting and maintenance<br>
+          • Enhanced chemical resistance<br>
+          • Optimized light reflectivity
+         </p>
+         <h3>Selection Criteria</h3>
+         <p>
+          • Operational environment requirements<br>
+          • Traffic type and intensity<br>
+          • Maintenance preferences<br>
+          • Aesthetic considerations
+         </p>
         </div>
        </div>
        <!-- #maincontent -->
