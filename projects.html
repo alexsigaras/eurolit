@@ -416,6 +416,99 @@
     }
    }
 
+   /* Projects Menu Styles */
+   .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+   }
+
+   .menu li {
+    margin-bottom: 2px;
+   }
+
+   .menu li a {
+    display: block;
+    padding: 12px 20px;
+    background: #f5f5f5;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+   }
+
+   .menu li a:hover {
+    background: #e0e0e0;
+    transform: translateX(5px);
+   }
+
+   .menu li.active a {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateX(5px);
+   }
+
+   .project-type-section {
+    margin-bottom: 40px;
+   }
+
+   .section-header {
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+   }
+
+   .section-header h1 {
+    color: var(--primary-color);
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    font-weight: 600;
+   }
+
+   .section-header p {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+   }
+
+   .no-projects-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin: 20px 0;
+   }
+
+   .no-projects-message h3 {
+    color: var(--primary-color);
+    margin: 0 0 15px 0;
+    font-size: 24px;
+   }
+
+   .no-projects-message p {
+    color: var(--text-light);
+    margin: 0 0 20px 0;
+    font-size: 16px;
+   }
+
+   .contact-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+   }
+
+   .contact-link:hover {
+    background: #003a7a;
+    transform: translateY(-2px);
+   }
+
    /* Footer Styles */
    .site-footer {
     background: var(--primary-color);
@@ -537,17 +630,17 @@
          <div class="container">
           <ul class="menu" rel="sam1">
            <li class="active">
-            <a href="projects.html">
+            <a href="#steel-fiber">
              Steel Fiber Reinforced Concrete
             </a>
            </li>
            <li>
-            <a href="magnesite.html">
+            <a href="#magnesite">
              Magnesite Screed
             </a>
            </li>
            <li>
-            <a href="diamond.html">
+            <a href="#diamond">
              Diamond Polished Concrete
             </a>
            </li>
@@ -578,10 +671,17 @@
         </div>
        </div>
        <!-- #sidebar -->
-       <div id="maincontent" style="overflow:scroll; 
+       <div id="maincontent" style="overflow:scroll;
 height:580px; overflow-y: scroll;
 overflow-x: hidden;
 ">
+        <!-- Steel Fiber Reinforced Concrete Section -->
+        <div id="steel-fiber-section" class="project-type-section">
+         <a name="steel-fiber" id="steel-fiber"></a>
+         <div class="section-header">
+          <h1>Steel Fiber Reinforced Concrete Projects</h1>
+          <p>Comprehensive portfolio of SFRC industrial flooring projects across logistics centers, retail facilities, and manufacturing plants.</p>
+         </div>
         <h2>
          Masoutis
         </h2>
@@ -1381,7 +1481,614 @@ overflow-x: hidden;
           <img alt="" src="images/dikeve/4s.JPG" style="margin-right:45px;"/>
          </a>
         </div>
-        <!-- #maincontent -->
+        </div>
+        <!-- End Steel Fiber Section -->
+
+        <!-- Magnesite Screed Section -->
+        <div id="magnesite-section" class="project-type-section" style="display:none;">
+         <a name="magnesite" id="magnesite"></a>
+         <div class="section-header">
+          <h1>Magnesite Screed Projects</h1>
+          <p>Specialized magnesite screed flooring solutions for environments requiring exceptional durability and chemical resistance.</p>
+         </div>
+        <h2>
+         Abbott laboratories
+        </h2>
+        <a href="images/abbotL.jpg" rel="example_group" title="Magnesite Screed Abbott Laboratories">
+         <img alt="" src="images/abbotS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Abbot/1l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/1s.jpg" style="  margin-right:0px;"/>
+         </a>
+         <a href="images/Abbot/6l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/6s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Abbot/4l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/4s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Abbot/2l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Abbot/3l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/3s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Abbot/5l.jpg" rel="example_group" title="Magnesite Screed  Abbott Laboratories">
+          <img alt="" src="images/Abbot/5s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Archaeological Museum Of Patras
+        </h2>
+        <a href="images/archL.jpg" rel="example_group" title="Magnesite Screed  Archaeological Museum Of Patras">
+         <img alt="" src="images/archS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Archielogical/1l.jpg" rel="example_group" title="Magnesite Screed  Archaeological Museum Of Patras">
+          <img alt="" src="images/Archielogical/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Archielogical/2l.jpg" rel="example_group" title="Magnesite Screed  Archaeological Museum Of Patras">
+          <img alt="" src="images/Archielogical/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Archielogical/3l.jpg" rel="example_group" title="Magnesite Screed  Archaeological Museum Of Patras">
+          <img alt="" src="images/Archielogical/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Davaris Textiles
+        </h2>
+        <a href="images/davarisL.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+         <img alt="" src="images/davarisS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Davaris/1l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/2l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/3l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/Davaris/4l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/5l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/5s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/6l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/6s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Davaris/7l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/7s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/8l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/8s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Davaris/9l.jpg" rel="example_group" title="Magnesite Screed  Davaris Textiles">
+          <img alt="" src="images/Davaris/9s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Famar
+        </h2>
+        <a href="images/famarL.jpg" rel="example_group" title="Magnesite Screed  Famar">
+         <img alt="" src="images/famarS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Famar/1l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Famar/2l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Famar/3l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/Famar/4l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Famar/5l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/5s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Famar/6l.jpg" rel="example_group" title="Magnesite Screed  Famar">
+          <img alt="" src="images/Famar/6s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Fanco Spinning Mills
+        </h2>
+        <a href="images/fancoL.jpg" rel="example_group" title="Magnesite Screed  Fanco Spinning Mills">
+         <img alt="" src="images/fancoS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Fanco/1l.jpg" rel="example_group" title="Magnesite Screed  Fanco Spinning Mills">
+          <img alt="" src="images/Fanco/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Fanco/2l.jpg" rel="example_group" title="Magnesite Screed  Fanco Spinning Mills">
+          <img alt="" src="images/Fanco/2s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Fanware
+        </h2>
+        <a href="images/fanwareL.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+         <img alt="" src="images/fanwareS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Fanware/1l.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+          <img alt="" src="images/Fanware/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Fanware/2l.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+          <img alt="" src="images/Fanware/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Fanware/3l.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+          <img alt="" src="images/Fanware/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/Fanware/4l.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+          <img alt="" src="images/Fanware/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Fanware/5l.jpg" rel="example_group" title="Magnesite Screed  Fanware">
+          <img alt="" src="images/Fanware/5s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Geyer
+        </h2>
+        <a href="images/gayerL.jpg" rel="example_group" title="Magnesite Screed  Geyer">
+         <img alt="" src="images/gayerS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Geyer/2l.jpg" rel="example_group" title="Magnesite Screed  Geyer">
+          <img alt="" src="images/Geyer/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Geyer/1l.jpg" rel="example_group" title="Magnesite Screed  Geyer">
+          <img alt="" src="images/Geyer/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <div class="clear">
+         </div>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Glaxo
+        </h2>
+        <a href="images/glaxoL.jpg" rel="example_group" title="Magnesite Screed  Glaxo">
+         <img alt="" src="images/glaxoS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <a href="images/consulting/Renovation/glaxo(1).jpg" rel="example_group" title="Magnesite Screed  Glaxo">
+         <img alt="" src="images/consulting/Renovation/glaxo(1)s.jpg" style="margin-right:45px;"/>
+        </a>
+        <a href="images/consulting/Renovation/glaxo2.jpg" rel="example_group" title="Magnesite Screed  Glaxo">
+         <img alt="" src="images/consulting/Renovation/glaxo2s.jpg" style="margin-right:45px;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Lavipharm
+        </h2>
+        <a href="images/lavifarphL.jpg" rel="example_group" title="Magnesite Screed  Lavipharm">
+         <img alt="" src="images/lavifarphS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Lavifarph/1l.jpg" rel="example_group" title="Magnesite Screed  Lavipharm">
+          <img alt="" src="images/Lavifarph/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Lavifarph/2l.jpg" rel="example_group" title="Magnesite Screed  Lavipharm">
+          <img alt="" src="images/Lavifarph/2s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Nike
+        </h2>
+        <a href="images/niceL.jpg" rel="example_group" title="Magnesite Screed  Nike">
+         <img alt="" src="images/niceS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Nike/1l.jpg" rel="example_group" title="Magnesite Screed  Nike">
+          <img alt="" src="images/Nike/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Nike/2l.jpg" rel="example_group" title="Magnesite Screed  Nike">
+          <img alt="" src="images/Nike/2s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Nutria
+        </h2>
+        <a href="images/nutriaL.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+         <img alt="" src="images/nutriaS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Nutria/1l.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+          <img alt="" src="images/Nutria/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Nutria/2l.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+          <img alt="" src="images/Nutria/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Nutria/3l.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+          <img alt="" src="images/Nutria/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/Nutria/4l.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+          <img alt="" src="images/Nutria/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Nutria/5l.jpg" rel="example_group" title="Magnesite Screed  Nutria">
+          <img alt="" src="images/Nutria/5s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Nutricia
+        </h2>
+        <a href="images/nutriciaL.jpg" rel="example_group" title="Magnesite Screed  Nutricia">
+         <img alt="" src="images/nutriciaS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Schiesser
+        </h2>
+        <a href="images/shisserL.jpg" rel="example_group" title="Magnesite Screed  Schiesser">
+         <img alt="" src="images/shisserS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Shisser/1l.jpg" rel="example_group" title="Magnesite Screed  Schiesser">
+          <img alt="" src="images/Shisser/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Shisser/2l.jpg" rel="example_group" title="Magnesite Screed  Schiesser">
+          <img alt="" src="images/Shisser/2s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Shisser/3l.jpg" rel="example_group" title="Magnesite Screed  Schiesser">
+          <img alt="" src="images/Shisser/3s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Thrace Spinning Mills
+        </h2>
+        <a href="images/traceL.jpg" rel="example_group" title="Magnesite Screed Thrace Spinning Mills">
+         <img alt="" src="images/traceS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Thrace/1l.jpg" rel="example_group" title="Magnesite Screed  Thrace Spinning Mills">
+          <img alt="" src="images/Thrace/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Thrace/2l.jpg" rel="example_group" title="Magnesite Screed  Thrace Spinning Mills">
+          <img alt="" src="images/Thrace/2s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Unimac
+        </h2>
+        <a href="images/unimacL.jpg" rel="example_group" title="Magnesite Screed  Unimac">
+         <img alt="" src="images/unimacS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Unimac/1l.jpg" rel="example_group" title="Magnesite Screed  Unimac">
+          <img alt="" src="images/Unimac/1s.jpg" style="  margin-right:44px;"/>
+         </a>
+         <a href="images/Unimac/2l.jpg" rel="example_group" title="Magnesite Screed  Unimac">
+          <img alt="" src="images/Unimac/2s.jpg" style="margin-right:44px;"/>
+         </a>
+         <a href="images/Unimac/3l.jpg" rel="example_group" title="Magnesite Screed  Unimac">
+          <img alt="" src="images/Unimac/3s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Vernilac
+        </h2>
+        <a href="images/vernilacL.jpg" rel="example_group" title="Magnesite Screed  Vernilac">
+         <img alt="" src="images/vernilacS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Volkswagen
+        </h2>
+        <a href="images/volkswagenL.jpg" rel="example_group" title="Magnesite Screed  Volkswagen">
+         <img alt="" src="images/volkswagenS.jpg" style="float:left;"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Volkswagen/1l.jpg" rel="example_group" title="Magnesite Screed  Volkswagen">
+          <img alt="" src="images/Volkswagen/1s.jpg" style="  margin-right:44px;"/>
+         </a>
+         <a href="images/Volkswagen/2l.jpg" rel="example_group" title="Magnesite Screed  Volkswagen">
+          <img alt="" src="images/Volkswagen/2s.jpg" style="  margin-right:44px;"/>
+         </a>
+         <a href="images/Volkswagen/3l.jpg" rel="example_group" title="Magnesite Screed  Volkswagen">
+          <img alt="" src="images/Volkswagen/3s.jpg" style="  margin-right:0px;"/>
+         </a>
+        </div>
+        </div>
+        <!-- End Magnesite Section -->
+
+        <!-- Diamond Polished Concrete Section -->
+        <div id="diamond-section" class="project-type-section" style="display:none;">
+         <a name="diamond" id="diamond"></a>
+         <div class="section-header">
+          <h1>Diamond Polished Concrete Projects</h1>
+          <p>High-performance diamond polished concrete floors delivering superior aesthetics and durability for commercial and industrial applications.</p>
+         </div>
+        <h2>
+         Aldi
+        </h2>
+        <a href="images/aldiL.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+         <img alt="" src="images/aldiS.jpg" style="float:left;" width="526"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Aldi/1l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/1s.jpg" style="  margin-right:0px;"/>
+         </a>
+         <a href="images/Aldi/2l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/2s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Aldi/3l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Aldi/4l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Aldi/5l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/5s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Aldi/6l.jpg" rel="example_group" title="Diamond Polished Concrete  Aldi">
+          <img alt="" src="images/Aldi/6s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Hellenic - American Educational Foundation (HAEF)
+        </h2>
+        <a href="images/HAEF/haefL.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+         <img alt="" src="images/HAEF/haefS.jpg" style="float:left;" width="524"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/HAEF/haefL.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef2L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef2S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef3L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef3S.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/HAEF/haef4L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef4S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef5L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef5S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef6L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef6S.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/HAEF/haef7L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef7S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef8L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef8S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef9L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef9S.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/HAEF/haef10L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef10S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef11L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef11S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/HAEF/haef12L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef12S.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/HAEF/haef13L.jpg" rel="example_group" title="Diamond Polished Concrete  HAEF">
+          <img alt="" src="images/HAEF/haef13S.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Trade Logistics InterSport
+        </h2>
+        <a href="images/INTERSPORT/insL.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+         <img alt="" src="images/INTERSPORT/insS.jpg" style="float:left;" width="524"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/INTERSPORT/insL.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+          <img alt="" src="images/INTERSPORT/ins1S.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/INTERSPORT/ins2L.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+          <img alt="" src="images/INTERSPORT/ins2S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/INTERSPORT/ins3L.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+          <img alt="" src="images/INTERSPORT/ins3S.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/INTERSPORT/ins4L.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+          <img alt="" src="images/INTERSPORT/ins4S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/INTERSPORT/ins5L.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics InterSport">
+          <img alt="" src="images/INTERSPORT/ins5S.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Trade Logistics IKEA
+        </h2>
+        <a href="images/IKEA/ikeaL.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics IKEA">
+         <img alt="" src="images/IKEA/ikeaS.jpg" style="float:left;" width="524"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/IKEA/ikeaL.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics IKEA">
+          <img alt="" src="images/IKEA/ikea1S.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/IKEA/ikea2L.jpg" rel="example_group" title="Diamond Polished Concrete  Trade Logistics IKEA">
+          <img alt="" src="images/IKEA/ikea2S.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Avon Cosmetics
+        </h2>
+        <a href="images/AVON/AvonL.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+         <img alt="" src="images/AVON/AvonS.jpg" style="float:left;" width="526"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/AVON/AvonL.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+          <img alt="" src="images/AVON/Avon1S.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/AVON/Avon4L.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+          <img alt="" src="images/AVON/Avon4S.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/AVON/Avon3L.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+          <img alt="" src="images/AVON/Avon3S.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/AVON/Avon5L.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+          <img alt="" src="images/AVON/Avon5S.jpg" style="margin-right:6px;"/>
+         </a>
+         <img alt="" src="images/red-arrow.png" style="  margin-right:6px;margin-top:50px;width:30px;height:20px"/>
+         <a href="images/AVON/Avon2L.jpg" rel="example_group" title="Diamond Polished Concrete  Avon Cosmetics">
+          <img alt="" src="images/AVON/Avon2S.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Missirian
+        </h2>
+        <a href="images/missirianL.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+         <img alt="" src="images/missirianS.jpg" style="float:left;" width="524"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Missirian/1l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/1s.jpg" style="  margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/13l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/13s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/3l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/3s.jpg" style="margin-right:0px;"/>
+         </a>
+         <div class="clear">
+         </div>
+         <a href="images/Missirian/4l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/4s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/5l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/5s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/6l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/6s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Missirian/7l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/7s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/8l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/8s.jpg" style="margin-right:6px;"/>
+         </a>
+         <img alt="" src="images/red-arrow.png" style="margin-right:6px;margin-top:50px;width:30px;height:20px"/>
+         <a href="images/Missirian/9l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/9s.jpg" style="margin-right:0px;"/>
+         </a>
+         <a href="images/Missirian/10l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/10s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/11l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/11s.jpg" style="margin-right:45px;"/>
+         </a>
+         <a href="images/Missirian/12l.jpg" rel="example_group" title="Diamond Polished Concrete  Missirian">
+          <img alt="" src="images/Missirian/12s.jpg" style="margin-right:0px;"/>
+         </a>
+        </div>
+        <hr/>
+        <h2 style="padding-top:20px;">
+         Bic - Violex
+        </h2>
+        <a href="images/bicL.jpg" rel="example_group" title="Diamond Polished Concrete  Bic - Violex">
+         <img alt="" src="images/bicS.jpg" style="float:left;" width="526"/>
+        </a>
+        <div class="clear">
+        </div>
+        <div style="width:530px; margin-top:-10px; margin-bottom:50px!important; float:left;">
+         <a href="images/Bic-Violex/1l.jpg" rel="example_group" title="Diamond Polished Concrete  Bic - Violex">
+          <img alt="" src="images/Bic-Violex/1s.jpg" style="  margin-right:6px;"/>
+         </a>
+         <img alt="" src="images/red-arrow.png" style="  margin-right:6px;margin-top:50px;width:30px;height:20px"/>
+         <a href="images/Bic-Violex/2l.jpg" rel="example_group" title="Diamond Polished Concrete  Bic - Violex">
+          <img alt="" src="images/Bic-Violex/2s.jpg" style="margin-right:45px;"/>
+         </a>
+        </div>
+        </div>
+        <!-- End Diamond Section -->
+
        </div>
        <!-- #maincontent -->
        <div class="clear">
@@ -1417,6 +2124,39 @@ overflow-x: hidden;
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
   }
+
+  // Projects anchor navigation
+  function showSectionFromHash() {
+    var hash = window.location.hash || '#steel-fiber';
+    var target = hash.replace('#', '') + '-section';
+    $('.project-type-section').hide();
+    if ($('#' + target).length) {
+      $('#' + target).show();
+    } else {
+      $('#steel-fiber-section').show();
+      hash = '#steel-fiber';
+    }
+    $('.menu li').removeClass('active');
+    $('.menu a[href="' + hash + '"]').parent().addClass('active');
+  }
+
+  $(document).ready(function() {
+    // Initialize projects navigation
+    showSectionFromHash();
+
+    // Handle menu clicks
+    $('.menu a').click(function(e) {
+      e.preventDefault();
+      var hash = $(this).attr('href');
+      window.location.hash = hash;
+      showSectionFromHash();
+    });
+
+    // Handle browser back/forward
+    $(window).on('hashchange', function() {
+      showSectionFromHash();
+    });
+  });
 
   // Mobile menu functionality
   document.addEventListener('DOMContentLoaded', function() {
