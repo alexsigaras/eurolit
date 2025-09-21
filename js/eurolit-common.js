@@ -1,37 +1,38 @@
-// Common Eurolit website JavaScript
-
-// Cufon font replacement
-function initCufon() {
-    if (typeof Cufon !== 'undefined') {
-        Cufon.replace('h1')('h2')('h3')('h4')('h5')('h6')('.slider-text h1', {textShadow: '#000 2px 0px 2px'})('.slider-text .button');
-    }
-}
-
-// Content preloader initialization
-function initPreloader() {
-    if (typeof jQuery !== 'undefined') {
-        jQuery(document).ready(function(){
-            jQuery("#content").preloader();
-        });
-    }
-}
+// Common Eurolit website JavaScript - Modern Vanilla Implementation
 
 // Remove noscript styles when JavaScript is enabled
 function removeNoscriptStyles() {
-    if (typeof jQuery !== 'undefined') {
-        jQuery('#noscript').remove();
+    const noscriptElement = document.getElementById('noscript');
+    if (noscriptElement) {
+        noscriptElement.remove();
     }
 }
 
-// Initialize common functionality
-jQuery(document).ready(function() {
-    initPreloader();
-    removeNoscriptStyles();
-});
+// Modern content loader (replaces jQuery preloader)
+function initContentLoader() {
+    const content = document.getElementById('content');
+    if (content) {
+        // Simple fade-in effect for content
+        content.style.opacity = '0';
+        content.style.transition = 'opacity 0.3s ease';
 
-// Initialize Cufon after page load
-if (typeof Cufon !== 'undefined') {
-    initCufon();
-    // Fix Cufon IE problems
-    Cufon.now();
+        // Ensure content is visible after DOM is ready
+        setTimeout(() => {
+            content.style.opacity = '1';
+        }, 100);
+    }
+}
+
+// Initialize common functionality when DOM is ready
+function initCommonFunctionality() {
+    removeNoscriptStyles();
+    initContentLoader();
+}
+
+// Modern DOMContentLoaded replacement for jQuery(document).ready()
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCommonFunctionality);
+} else {
+    // DOM already loaded
+    initCommonFunctionality();
 }

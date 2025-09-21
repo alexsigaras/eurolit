@@ -1,6 +1,6 @@
-// Jquery with no conflict
-jQuery(document).ready(function($) {
-	
+// Modern Vanilla JavaScript - No jQuery dependency
+document.addEventListener('DOMContentLoaded', function() {
+
 	// Modern Responsive Carousel ------------------------------------------------------ //
 
 	// Initialize carousel only if element exists
@@ -87,292 +87,522 @@ jQuery(document).ready(function($) {
 		}
 	}
 	
-	// Poshytips ------------------------------------------------------ //
-	
-    $('.poshytip').poshytip({
-    	className: 'tip-twitter',
-		showTimeout: 1,
-		alignTo: 'target',
-		alignX: 'center',
-		offsetY: 5,
-		allowTipHover: false
-    });
-    
-    
-    // Poshytips Forms ------------------------------------------------------ //
-    
-    $('.form-poshytip').poshytip({
-		className: 'tip-yellowsimple',
-		showOn: 'focus',
-		alignTo: 'target',
-		alignX: 'right',
-		alignY: 'center',
-		offsetX: 5
+	// Modern Tooltips (replacing Poshytips) ------------------------------------------------------ //
+
+	// Simple tooltip implementation for elements with 'poshytip' class
+	document.querySelectorAll('.poshytip').forEach(element => {
+		element.addEventListener('mouseenter', function(e) {
+			const tooltip = document.createElement('div');
+			tooltip.className = 'modern-tooltip tip-twitter';
+			tooltip.textContent = this.getAttribute('title') || this.getAttribute('data-tooltip');
+			tooltip.style.cssText = `
+				position: absolute;
+				background: rgba(0,0,0,0.8);
+				color: white;
+				padding: 5px 10px;
+				border-radius: 4px;
+				font-size: 12px;
+				z-index: 9999;
+				pointer-events: none;
+			`;
+			document.body.appendChild(tooltip);
+
+			const rect = this.getBoundingClientRect();
+			tooltip.style.left = (rect.left + rect.width/2 - tooltip.offsetWidth/2) + 'px';
+			tooltip.style.top = (rect.bottom + 5) + 'px';
+
+			this._tooltip = tooltip;
+		});
+
+		element.addEventListener('mouseleave', function() {
+			if (this._tooltip) {
+				this._tooltip.remove();
+				this._tooltip = null;
+			}
+		});
+	});
+
+	// Form tooltips
+	document.querySelectorAll('.form-poshytip').forEach(element => {
+		element.addEventListener('focus', function(e) {
+			const tooltip = document.createElement('div');
+			tooltip.className = 'modern-tooltip tip-yellowsimple';
+			tooltip.textContent = this.getAttribute('title') || this.getAttribute('data-tooltip');
+			tooltip.style.cssText = `
+				position: absolute;
+				background: #fffbcc;
+				color: #333;
+				padding: 5px 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 12px;
+				z-index: 9999;
+			`;
+			document.body.appendChild(tooltip);
+
+			const rect = this.getBoundingClientRect();
+			tooltip.style.left = (rect.right + 5) + 'px';
+			tooltip.style.top = rect.top + 'px';
+
+			this._tooltip = tooltip;
+		});
+
+		element.addEventListener('blur', function() {
+			if (this._tooltip) {
+				this._tooltip.remove();
+				this._tooltip = null;
+			}
+		});
 	});
 	
-	// Superfish menu ------------------------------------------------------ //
-	
-	$("ul.sf-menu").superfish({ 
-        animation: {height:'show'},   // slide-down effect without fade-in 
-        delay:     800 ,              // 1.2 second delay on mouseout 
-        autoArrows:  false
-    });
+	// Modern Menu (replacing Superfish) ------------------------------------------------------ //
+
+	const menuElement = document.querySelector("ul.sf-menu");
+	if (menuElement) {
+		const menuItems = menuElement.querySelectorAll('li');
+
+		menuItems.forEach(item => {
+			const submenu = item.querySelector('ul');
+			if (submenu) {
+				let hideTimeout;
+
+				item.addEventListener('mouseenter', function() {
+					clearTimeout(hideTimeout);
+					submenu.style.display = 'block';
+					submenu.style.height = 'auto';
+				});
+
+				item.addEventListener('mouseleave', function() {
+					hideTimeout = setTimeout(() => {
+						submenu.style.display = 'none';
+					}, 800);
+				});
+			}
+		});
+	}
     
     // Scroll to top ------------------------------------------------------ //
-    
-	$('#to-top').click(function(){
-		$.scrollTo( {top:'0px', left:'0px'}, 300 );
-	});
+
+	const scrollToTopElement = document.getElementById('to-top');
+	if (scrollToTopElement) {
+		scrollToTopElement.addEventListener('click', function(e) {
+			e.preventDefault();
+			window.scrollTo({
+				top: 0,
+				left: 0,
+				behavior: 'smooth'
+			});
+		});
+	}
 		
 	// Submenu rollover --------------------------------------------- //
-	
-	$("ul.sf-menu>li>ul li").hover(function() { 
-		// on rollover	
-		$(this).children('a').children('span').stop().animate({ 
-			marginLeft: "3" 
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).children('a').children('span').stop().animate({
-			marginLeft: "0" 
-		}, "fast");
+
+	document.querySelectorAll("ul.sf-menu>li>ul li").forEach(item => {
+		item.addEventListener('mouseenter', function() {
+			const span = this.querySelector('a span');
+			if (span) {
+				span.style.transition = 'margin-left 0.2s ease';
+				span.style.marginLeft = '3px';
+			}
+		});
+
+		item.addEventListener('mouseleave', function() {
+			const span = this.querySelector('a span');
+			if (span) {
+				span.style.marginLeft = '0px';
+			}
+		});
 	});
 	
 	// Tweet Feed ------------------------------------------------------ //
-	
-	$("#tweets").tweet({
-        query: "from:envato http",
-        count: 3,
-        loading_text: "loading tweets...",
-        callback: tweet_cycle
-    });
+
+	const tweetsElement = document.getElementById("tweets");
+	if (tweetsElement) {
+		// Modern Twitter integration would require API keys
+		tweetsElement.innerHTML = '<p style="color: #666; font-style: italic;">Twitter feed temporarily unavailable</p>';
+	}
 	
 	// Tweet arrows rollover --------------------------------------------- //
-	
-	$("#twitter #prev-tweet").hover(function() { 
-		// on rollover	
-		$(this).stop().animate({ 
-			left: "27" 
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).stop().animate({
-			left: "30" 
-		}, "fast");
-	});
-	
-	$("#twitter #next-tweet").hover(function() { 
-		// on rollover	
-		$(this).stop().animate({ 
-			right: "27" 
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).stop().animate({
-			right: "30" 
-		}, "fast");
-	});
-	
-	// Tweet cycle --------------------------------------------- //
-	
-	function tweet_cycle(){
-    	$('#tweets .tweet_list').cycle({ 
-			fx:     'scrollHorz', 
-			speed:  500, 
-			timeout: 0, 
-			pause: 1,
-			next:   '#twitter #next-tweet', 
-			prev:   '#twitter #prev-tweet' 
+
+	const prevTweet = document.querySelector("#twitter #prev-tweet");
+	if (prevTweet) {
+		prevTweet.addEventListener('mouseenter', function() {
+			this.style.transition = 'left 0.2s ease';
+			this.style.left = '27px';
 		});
+		prevTweet.addEventListener('mouseleave', function() {
+			this.style.left = '30px';
+		});
+	}
+
+	const nextTweet = document.querySelector("#twitter #next-tweet");
+	if (nextTweet) {
+		nextTweet.addEventListener('mouseenter', function() {
+			this.style.transition = 'right 0.2s ease';
+			this.style.right = '27px';
+		});
+		nextTweet.addEventListener('mouseleave', function() {
+			this.style.right = '30px';
+		});
+	}
+
+	// Tweet cycle --------------------------------------------- //
+
+	function tweet_cycle() {
+		// Modern implementation would use IntersectionObserver or custom slider
+		// For now, disabled since Twitter feed is not active
+		console.log('Tweet cycle functionality disabled - Twitter feed not available');
 	}
 	
 	// tabs ------------------------------------------------------ //
-	
-	$("ul.tabs").tabs("div.panes > div", {effect: 'fade'});
+
+	// Modern tabs implementation
+	const tabsContainer = document.querySelector("ul.tabs");
+	const panesContainer = document.querySelector("div.panes");
+	if (tabsContainer && panesContainer) {
+		const tabs = tabsContainer.querySelectorAll('li a');
+		const panes = panesContainer.querySelectorAll('div');
+
+		tabs.forEach((tab, index) => {
+			tab.addEventListener('click', function(e) {
+				e.preventDefault();
+
+				// Remove active class from all tabs and panes
+				tabs.forEach(t => t.parentElement.classList.remove('active'));
+				panes.forEach(p => {
+					p.style.display = 'none';
+					p.style.opacity = '0';
+				});
+
+				// Add active class to current tab
+				this.parentElement.classList.add('active');
+
+				// Show current pane with fade effect
+				if (panes[index]) {
+					panes[index].style.display = 'block';
+					panes[index].style.transition = 'opacity 0.3s ease';
+					setTimeout(() => {
+						panes[index].style.opacity = '1';
+					}, 10);
+				}
+			});
+		});
+	}
 	
 	// Thumbs rollover --------------------------------------------- //
-	
-	$('.thumbs-rollover li a img').hover(function(){
-		// on rollover
-		$(this).stop().animate({ 
-			opacity: "0.5" 
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).stop().animate({
-			opacity: "1" 
-		}, "fast");
+
+	document.querySelectorAll('.thumbs-rollover li a img').forEach(img => {
+		img.addEventListener('mouseenter', function() {
+			this.style.transition = 'opacity 0.2s ease';
+			this.style.opacity = '0.5';
+		});
+
+		img.addEventListener('mouseleave', function() {
+			this.style.opacity = '1';
+		});
 	});
 		
 	
 	// Blog posts rollover --------------------------------------------- //
-	
-	$('#posts .post').hover(function(){
-		// on rollover
-		$(this).children('.thumb-shadow').children('.post-thumbnail').children(".cover").stop().animate({ 
-			left: "312"
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).children('.thumb-shadow').children('.post-thumbnail').children(".cover").stop().animate({
-			left: "0" 
-		}, "fast");
+
+	document.querySelectorAll('#posts .post').forEach(post => {
+		post.addEventListener('mouseenter', function() {
+			const cover = this.querySelector('.thumb-shadow .post-thumbnail .cover');
+			if (cover) {
+				cover.style.transition = 'left 0.2s ease';
+				cover.style.left = '312px';
+			}
+		});
+
+		post.addEventListener('mouseleave', function() {
+			const cover = this.querySelector('.thumb-shadow .post-thumbnail .cover');
+			if (cover) {
+				cover.style.left = '0px';
+			}
+		});
 	});
 	
 	// Portfolio projects rollover --------------------------------------------- //
-	
-	$('#projects-list .project').hover(function(){
-		// on rollover
-		$(this).children('.project-shadow').children('.project-thumbnail').children(".cover").stop().animate({ 
-			top: "133"
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).children('.project-shadow').children('.project-thumbnail').children(".cover").stop().animate({
-			top: "0" 
-		}, "fast");
+
+	document.querySelectorAll('#projects-list .project').forEach(project => {
+		project.addEventListener('mouseenter', function() {
+			const cover = this.querySelector('.project-shadow .project-thumbnail .cover');
+			if (cover) {
+				cover.style.transition = 'top 0.2s ease';
+				cover.style.top = '133px';
+			}
+		});
+
+		project.addEventListener('mouseleave', function() {
+			const cover = this.querySelector('.project-shadow .project-thumbnail .cover');
+			if (cover) {
+				cover.style.top = '0px';
+			}
+		});
 	});
 	
 	// Sidebar rollover --------------------------------------------------- //
 
-	$('#sidebar>li>ul>li').hover(function(){
-		// over
-		$(this).children('a').stop().animate({ marginLeft: "5"	}, "fast");
-	} , function(){
-		// out
-		$(this).children('a').stop().animate({marginLeft: "0"}, "fast");
+	document.querySelectorAll('#sidebar>li>ul>li').forEach(item => {
+		item.addEventListener('mouseenter', function() {
+			const link = this.querySelector('a');
+			if (link) {
+				link.style.transition = 'margin-left 0.2s ease';
+				link.style.marginLeft = '5px';
+			}
+		});
+
+		item.addEventListener('mouseleave', function() {
+			const link = this.querySelector('a');
+			if (link) {
+				link.style.marginLeft = '0px';
+			}
+		});
 	});
 	
-	// Fancybox --------------------------------------------------- //
-	
-	$("a.fancybox").fancybox({ 
-		'overlayColor':	'#000'
+	// Modern Lightbox (replacing Fancybox and PrettyPhoto) --------------------------------------------------- //
+
+	// Simple lightbox implementation for fancybox links
+	document.querySelectorAll("a.fancybox, a[rel^='prettyPhoto']").forEach(link => {
+		link.addEventListener('click', function(e) {
+			e.preventDefault();
+			const src = this.href;
+
+			// Create lightbox overlay
+			const overlay = document.createElement('div');
+			overlay.style.cssText = `
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.8);
+				z-index: 10000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+			`;
+
+			// Create image
+			const img = document.createElement('img');
+			img.src = src;
+			img.style.cssText = `
+				max-width: 90%;
+				max-height: 90%;
+				object-fit: contain;
+			`;
+
+			overlay.appendChild(img);
+			document.body.appendChild(overlay);
+
+			// Close on click
+			overlay.addEventListener('click', function() {
+				this.remove();
+			});
+
+			// Close on escape
+			const escapeHandler = function(e) {
+				if (e.key === 'Escape') {
+					overlay.remove();
+					document.removeEventListener('keydown', escapeHandler);
+				}
+			};
+			document.addEventListener('keydown', escapeHandler);
+		});
 	});
-	
-	// pretty photo  ------------------------------------------------------ //
-	
-	$("a[rel^='prettyPhoto']").prettyPhoto();
 
 
 	// Project gallery over --------------------------------------------- //
-	
-	$('.project-gallery li a img').hover(function(){
-		// on rollover
-		$(this).stop().animate({ 
-			opacity: "0.5" 
-		}, "fast");
-	} , function() { 
-		// on out
-		$(this).stop().animate({
-			opacity: "1" 
-		}, "fast");
+
+	document.querySelectorAll('.project-gallery li a img').forEach(img => {
+		img.addEventListener('mouseenter', function() {
+			this.style.transition = 'opacity 0.2s ease';
+			this.style.opacity = '0.5';
+		});
+
+		img.addEventListener('mouseleave', function() {
+			this.style.opacity = '1';
+		});
 	});
 	
 	
-	// Thumbs functions ------------------------------------------------------ //
-	
+	// Modern Thumbs functions ------------------------------------------------------ //
+
 	function thumbsFunctions(){
-	
-		// prettyphoto
-		
-		$("a[rel^='prettyPhoto']").prettyPhoto();
-						
-		// Fancy box
-		$("a.fancybox").fancybox({ 
-			'overlayColor'		:	'#000'
+		// Gallery hover effects
+		document.querySelectorAll('.gallery li a img').forEach(img => {
+			img.addEventListener('mouseenter', function() {
+				this.style.transition = 'opacity 0.2s ease';
+				this.style.opacity = '0.5';
+			});
+
+			img.addEventListener('mouseleave', function() {
+				this.style.opacity = '1';
+			});
 		});
-		
-		// Gallery over 
-	
-		$('.gallery li a img').hover(function(){
-			// on rollover
-			$(this).stop().animate({ 
-				opacity: "0.5" 
-			}, "fast");
-		} , function() { 
-			// on out
-			$(this).stop().animate({
-				opacity: "1" 
-			}, "fast");
+
+		// Gallery tooltips
+		document.querySelectorAll('.gallery a').forEach(link => {
+			link.addEventListener('mouseenter', function(e) {
+				const tooltip = document.createElement('div');
+				tooltip.className = 'modern-tooltip tip-twitter';
+				tooltip.textContent = this.getAttribute('title') || this.getAttribute('data-tooltip');
+				tooltip.style.cssText = `
+					position: absolute;
+					background: rgba(0,0,0,0.8);
+					color: white;
+					padding: 5px 10px;
+					border-radius: 4px;
+					font-size: 12px;
+					z-index: 9999;
+					pointer-events: none;
+				`;
+				document.body.appendChild(tooltip);
+
+				const rect = this.getBoundingClientRect();
+				tooltip.style.left = (rect.left + rect.width/2 - tooltip.offsetWidth/2) + 'px';
+				tooltip.style.top = (rect.top - 15 - tooltip.offsetHeight) + 'px';
+
+				this._tooltip = tooltip;
+			});
+
+			link.addEventListener('mouseleave', function() {
+				if (this._tooltip) {
+					this._tooltip.remove();
+					this._tooltip = null;
+				}
+			});
 		});
-		
-		// tips
-		
-		$('.gallery a').poshytip({
-	    	className: 'tip-twitter',
-			showTimeout: 1,
-			alignTo: 'target',
-			alignX: 'center',
-			offsetY: -15,
-			allowTipHover: false
-	    });
-		
 	}
 	// init
 	thumbsFunctions();
 	
-	// Quicksand -----------------------------------------------------------//
-	
-	// get the initial (full) list
-	var $filterList = $('ul#portfolio-list');
-		
-	// Unique id 
-	for(var i=0; i<$('ul#portfolio-list li').length; i++){
-		$('ul#portfolio-list li:eq(' + i + ')').attr('id','unique_item' + i);
-	}
-	
-	// clone list
-	var $data = $filterList.clone();
-	
-	// Click 
-	$('#portfolio-filter a').click(function(e) {
-		if($(this).attr('rel') == 'all') {
-			// get a group of all items
-			var $filteredData = $data.find('li');
-		} else {
-			// get a group of items of a particular class
-			var $filteredData = $data.find('li.' + $(this).attr('rel'));
-		}
-		
-		// call Quicksand
-		$('ul#portfolio-list').quicksand($filteredData, {
-			duration: 500,
-			attribute: function(v) {
-				// this is the unique id attribute we created above
-				return $(v).attr('id');
-			}
-		}, function() {
-	        // restart thumbs functions
-	        thumbsFunctions();
+	// Modern Portfolio Filter (replacing Quicksand) -----------------------------------------------------------//
+
+	const portfolioList = document.querySelector('ul#portfolio-list');
+	if (portfolioList) {
+		// Add unique IDs to portfolio items
+		const portfolioItems = portfolioList.querySelectorAll('li');
+		portfolioItems.forEach((item, index) => {
+			item.id = 'unique_item' + index;
 		});
-		// remove # link
-		e.preventDefault();
-	});
+
+		// Portfolio filter functionality
+		const filterLinks = document.querySelectorAll('#portfolio-filter a');
+		filterLinks.forEach(link => {
+			link.addEventListener('click', function(e) {
+				e.preventDefault();
+				const filterClass = this.getAttribute('rel');
+
+				// Show/hide items based on filter
+			portfolioItems.forEach(item => {
+					if (filterClass === 'all' || item.classList.contains(filterClass)) {
+						item.style.display = 'block';
+						item.style.opacity = '0';
+						item.style.transition = 'opacity 0.5s ease';
+						setTimeout(() => {
+							item.style.opacity = '1';
+						}, 10);
+					} else {
+						item.style.opacity = '0';
+						setTimeout(() => {
+							item.style.display = 'none';
+						}, 500);
+					}
+				});
+
+				// Restart thumbs functions after filter
+				setTimeout(() => {
+					thumbsFunctions();
+				}, 600);
+			});
+		});
+	}
 
 		
-	// UI Accordion ------------------------------------------------------ //
+	// Modern Accordion ------------------------------------------------------ //
+
+	document.querySelectorAll(".accordion").forEach(accordion => {
+		const headers = accordion.querySelectorAll('.accordion-header, h3');
+		headers.forEach(header => {
+			header.addEventListener('click', function() {
+				const content = this.nextElementSibling;
+				if (content) {
+					// Close all other panels
+					headers.forEach(otherHeader => {
+						if (otherHeader !== this) {
+							const otherContent = otherHeader.nextElementSibling;
+							if (otherContent) {
+								otherContent.style.display = 'none';
+								otherHeader.classList.remove('active');
+							}
+						}
+					});
+
+					// Toggle current panel
+					if (content.style.display === 'none' || !content.style.display) {
+						content.style.display = 'block';
+						this.classList.add('active');
+					} else {
+						content.style.display = 'none';
+						this.classList.remove('active');
+					}
+				}
+			});
+		});
+	});
 	
-	$( ".accordion" ).accordion();
-	
-	// Toggle box ------------------------------------------------------ //
-	
-	$(".toggle-container").hide(); 
-	$(".toggle-trigger").click(function(){
-		$(this).toggleClass("active").next().slideToggle("slow");
-		return false;
+	// Modern Toggle box ------------------------------------------------------ //
+
+	document.querySelectorAll(".toggle-container").forEach(container => {
+		container.style.display = 'none';
+	});
+
+	document.querySelectorAll(".toggle-trigger").forEach(trigger => {
+		trigger.addEventListener('click', function(e) {
+			e.preventDefault();
+			this.classList.toggle('active');
+			const container = this.nextElementSibling;
+			if (container && container.classList.contains('toggle-container')) {
+				if (container.style.display === 'none' || !container.style.display) {
+					container.style.display = 'block';
+					container.style.transition = 'opacity 0.5s ease';
+					container.style.opacity = '0';
+					setTimeout(() => {
+						container.style.opacity = '1';
+					}, 10);
+				} else {
+					container.style.opacity = '0';
+					setTimeout(() => {
+						container.style.display = 'none';
+					}, 500);
+				}
+			}
+			return false;
+		});
 	});
 	
 	// Footer menu rollover --------------------------------------------------- //
 
-	$('#footer .col .page_item').hover(function(){
-		// over
-		$(this).children('a').stop().animate({ marginLeft: "5"	}, "fast");
-	} , function(){
-		// out
-		$(this).children('a').stop().animate({marginLeft: "0"}, "fast");
+	document.querySelectorAll('#footer .col .page_item').forEach(item => {
+		item.addEventListener('mouseenter', function() {
+			const link = this.querySelector('a');
+			if (link) {
+				link.style.transition = 'margin-left 0.2s ease';
+				link.style.marginLeft = '5px';
+			}
+		});
+
+		item.addEventListener('mouseleave', function() {
+			const link = this.querySelector('a');
+			if (link) {
+				link.style.marginLeft = '0px';
+			}
+		});
 	});
-		
-//close			
+
+//close
 });
 	
 // search clearance	

@@ -1,69 +1,133 @@
+// Modern Gallery Implementation
+document.addEventListener('DOMContentLoaded', function(){
 
+    // Add JS styles indicator
+    document.body.classList.add('hasJS');
 
+    // Modern homepage gallery implementation
+    const featureGallery = document.getElementById('feature_gallery');
+    if (featureGallery) {
+        const bigImages = featureGallery.querySelectorAll('.bigimg');
 
- 
-// DOM Loaded 
-$(function(){ 
-     
-    //init js styles 
-    $('body').addClass('hasJS'); 
-	 
-    // homepage cycles 
-    $('#feature_gallery .bigimg').wrapAll('<div class="bigimgs">').parents('#feature_gallery').append('<ul class="menu" id="feature_gallery_pager">').cycle({ 
-        fx:'fade', 
-        easing: 'swing', 
-        inDelay:    250, 
-        drop:       40, 
-        timeout:    5000, 
-        pause:      true,
-        slideExpr: '.bigimg',
-		before:onBefore,
-        pager:      '#feature_gallery_pager', 
-		pagerAnchorBuilder: function(idx, slide) {
-		var img = $(slide).children().eq(0).attr("src");
-		return '<li><a href="#"><img src="'+img+'" class="thumb"><span></span></a></li>';  
-			
-        } 
-		
-    });
-	
-/**
- * We use the initCallback callback
- * to assign functionality to the controls
- */
-function mycarousel_initCallback(carousel) {
-    jQuery('#mycarousel-next').bind('click', function() {
-        carousel.next();
-        return false;
-    });
+        if (bigImages.length > 0) {
+            // Wrap images in container
+            const bigimgsContainer = document.createElement('div');
+            bigimgsContainer.className = 'bigimgs';
 
-    jQuery('#mycarousel-prev').bind('click', function() {
-        carousel.prev();
-        return false;
-    });
-};
+            bigImages.forEach(img => {
+                bigimgsContainer.appendChild(img);
+            });
 
+            // Create pager
+            const pager = document.createElement('ul');
+            pager.className = 'menu';
+            pager.id = 'feature_gallery_pager';
 
-$(function() {
-    jQuery('#feature_gallery_pager').jcarousel({
-        scroll:1,
-		wrap:"both",
+            featureGallery.appendChild(bigimgsContainer);
+            featureGallery.appendChild(pager);
 
-        initCallback: mycarousel_initCallback,
-        // This tells jCarousel NOT to autobuild prev/next buttons
-        buttonNextHTML: null,
-        buttonPrevHTML: null
-    });
+            let currentIndex = 0;
+            let slideInterval;
+
+            // Build pager thumbnails
+            bigImages.forEach((slide, idx) => {
+                const img = slide.querySelector('img');
+                if (img) {
+                    const listItem = document.createElement('li');
+                    const anchor = document.createElement('a');
+                    const thumb = document.createElement('img');
+                    const span = document.createElement('span');
+
+                    anchor.href = '#';
+                    thumb.src = img.src;
+                    thumb.className = 'thumb';
+
+                    anchor.appendChild(thumb);
+                    anchor.appendChild(span);
+                    listItem.appendChild(anchor);
+                    pager.appendChild(listItem);
+
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showSlide(idx);
+                    });
+                }
+            });
+
+            // Show specific slide
+            function showSlide(index) {
+                bigImages.forEach((img, i) => {
+                    img.style.display = i === index ? 'block' : 'none';
+                    img.style.opacity = i === index ? '1' : '0';
+                });
+
+                const pagerItems = pager.querySelectorAll('li');
+                pagerItems.forEach((item, i) => {
+                    item.classList.toggle('active', i === index);
+                });
+
+                currentIndex = index;
+                onBefore.call(bigImages[index]);
+            }
+
+            // Auto-advance slides
+            function startSlideshow() {
+                slideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % bigImages.length;
+                    showSlide(currentIndex);
+                }, 5000);
+            }
+
+            // Pause on hover
+            featureGallery.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+
+            featureGallery.addEventListener('mouseleave', startSlideshow);
+
+            // Initialize
+            showSlide(0);
+            startSlideshow();
+        }
+    }
+
+    // Modern carousel controls
+    const nextButton = document.getElementById('mycarousel-next');
+    const prevButton = document.getElementById('mycarousel-prev');
+    const pagerElement = document.getElementById('feature_gallery_pager');
+
+    if (nextButton && pagerElement) {
+        nextButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const items = pagerElement.querySelectorAll('li');
+            if (items.length > 0) {
+                const current = pagerElement.querySelector('li.active');
+                const currentIndex = Array.from(items).indexOf(current);
+                const nextIndex = (currentIndex + 1) % items.length;
+                items[nextIndex].querySelector('a').click();
+            }
+            return false;
+        });
+    }
+
+    if (prevButton && pagerElement) {
+        prevButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const items = pagerElement.querySelectorAll('li');
+            if (items.length > 0) {
+                const current = pagerElement.querySelector('li.active');
+                const currentIndex = Array.from(items).indexOf(current);
+                const prevIndex = currentIndex > 0 ? currentIndex - 1 : items.length - 1;
+                items[prevIndex].querySelector('a').click();
+            }
+            return false;
+        });
+    }
 });
 
-	
-function onBefore() { 
-    $('#output').html(this.id); 
-} 	
-     
-}); 
- 
-/* Window load event (things that need to wait for images to finish loading) */ 
-//equal heights 
-
- 
+function onBefore() {
+    const output = document.getElementById('output');
+    if (output) {
+        output.textContent = this.id;
+    }
+}

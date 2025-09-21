@@ -1,17 +1,56 @@
-// Tab functionality for contact page
-jQuery(document).ready(function(){
-    // Tab functionality
-    jQuery(".tab-content").hide(); // Hide all content
-    jQuery("ul.tabs li:first").addClass("active").show(); // Activate first tab
-    jQuery(".tab-content:first").show(); // Show first tab content
+// Modern Tab functionality for contact page
+document.addEventListener('DOMContentLoaded', function(){
+    // Tab functionality - hide all content and show first tab
+    document.querySelectorAll(".tab-content").forEach(content => {
+        content.style.display = 'none';
+    });
+
+    const firstTab = document.querySelector("ul.tabs li:first-child");
+    const firstContent = document.querySelector(".tab-content:first-child");
+
+    if (firstTab) {
+        firstTab.classList.add("active");
+        firstTab.style.display = 'block';
+    }
+
+    if (firstContent) {
+        firstContent.style.display = 'block';
+    }
 
     // Tab click handler
-    jQuery("ul.tabs li").click(function() {
-        jQuery("ul.tabs li").removeClass("active"); // Remove any "active" class
-        jQuery(this).addClass("active"); // Add "active" class to selected tab
-        jQuery(".tab-content").hide(); // Hide all tab content
-        var activeTab = jQuery(this).find("a").attr("href"); // Find the href attribute value to identify the active tab + content
-        jQuery(activeTab).fadeIn(); // Fade in the active ID content
-        return false;
+    document.querySelectorAll("ul.tabs li").forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Remove active class from all tabs
+            document.querySelectorAll("ul.tabs li").forEach(t => {
+                t.classList.remove("active");
+            });
+
+            // Add active class to clicked tab
+            this.classList.add("active");
+
+            // Hide all tab content
+            document.querySelectorAll(".tab-content").forEach(content => {
+                content.style.display = 'none';
+                content.style.opacity = '0';
+            });
+
+            // Find and show active tab content
+            const link = this.querySelector("a");
+            if (link) {
+                const activeTab = link.getAttribute("href");
+                const activeContent = document.querySelector(activeTab);
+                if (activeContent) {
+                    activeContent.style.display = 'block';
+                    activeContent.style.transition = 'opacity 0.3s ease';
+                    setTimeout(() => {
+                        activeContent.style.opacity = '1';
+                    }, 10);
+                }
+            }
+
+            return false;
+        });
     });
 });
