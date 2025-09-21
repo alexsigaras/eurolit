@@ -36,120 +36,8 @@
   <!--CSS-->
   <link href="css/eurolit-consolidated.css" rel="stylesheet" type="text/css"/>
   <!--Javascript-->
-  <script crossorigin="anonymous" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" src="https://code.jquery.com/jquery-3.7.1.min.js">
-  </script>
-  <script type="text/javascript">
-   // jQuery browser compatibility shim for older plugins
-   jQuery.browser = {};
-   jQuery.browser.mozilla = /mozilla/.test(navigator.userAgent.toLowerCase()) && !/webkit/.test(navigator.userAgent.toLowerCase());
-   jQuery.browser.webkit = /webkit/.test(navigator.userAgent.toLowerCase());
-   jQuery.browser.opera = /opera/.test(navigator.userAgent.toLowerCase());
-   jQuery.browser.msie = /msie/.test(navigator.userAgent.toLowerCase()) || /trident/.test(navigator.userAgent.toLowerCase());
-   jQuery.browser.version = (navigator.userAgent.toLowerCase().match( /.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0,'0'])[1];
-  </script>
-  <script src="js/jquery.preloader.js" type="text/javascript">
-  </script>
-  <script src="js/jquery.mousewheel-3.0.4.pack.js" type="text/javascript">
-  </script>
-  <script src="js/jquery.fancybox-1.3.4.pack.js" type="text/javascript">
-  </script>
   <link href="css/jquery.fancybox-1.3.4.css" media="screen" rel="stylesheet" type="text/css"/>
-  <script src="js/zoomer.js" type="text/javascript">
-  </script>
-  <script type="text/javascript">
-   $(document).ready(function(){
- 	$('ul.thumb li').Zoomer({speedView:400,speedRemove:400,altAnim:true,speedTitle:400,debug:false});
-});
-  </script>
-  <script type="text/javascript">
-   $(document).ready(function() {
-			/*
-			*   Examples - images
-			*/
-
-			$("a#example1").fancybox();
-
-			$("a#example2").fancybox({
-				'overlayShow'	: false,
-				'transitionIn'	: 'elastic',
-				'transitionOut'	: 'elastic'
-			});
-
-			$("a#example3").fancybox({
-				'transitionIn'	: 'none',
-				'transitionOut'	: 'none'
-			});
-
-			$("a#example4").fancybox({
-				'opacity'		: true,
-				'overlayShow'	: false,
-				'transitionIn'	: 'elastic',
-				'transitionOut'	: 'none'
-			});
-
-			$("a#example5").fancybox();
-
-			$("a#example6").fancybox({
-				'titlePosition'		: 'outside',
-				'overlayColor'		: '#000',
-				'overlayOpacity'	: 0.9
-			});
-
-			$("a#example7").fancybox({
-				'titlePosition'	: 'inside'
-			});
-
-			$("a#example8").fancybox({
-				'titlePosition'	: 'over'
-			});
-
-			$("a[rel='example_group']").fancybox({
-				'transitionIn'		: 'none',
-				'transitionOut'		: 'none',
-				'titlePosition' 	: 'over',
-				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
-					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
-				}
-			});
-
-			/*
-			*   Examples - various
-			*/
-
-			$("#various1").fancybox({
-				'titlePosition'		: 'inside',
-				'transitionIn'		: 'none',
-				'transitionOut'		: 'none'
-			});
-
-			$("#various2").fancybox();
-
-			$("#various3").fancybox({
-				'width'				: '75%',
-				'height'			: '75%',
-				'autoScale'			: false,
-				'transitionIn'		: 'none',
-				'transitionOut'		: 'none',
-				'type'				: 'iframe'
-			});
-
-			$("#various4").fancybox({
-				'padding'			: 0,
-				'autoScale'			: false,
-				'transitionIn'		: 'none',
-				'transitionOut'		: 'none'
-			});
-		});
-  </script>
   <!--Demo Switcher-->
-  <script src="js/jquery.cookie.js" type="text/javascript">
-  </script>
-  <script src="js/eurolit-common.js" type="text/javascript">
-  </script>
-  <script src="js/analytics.js" type="text/javascript">
-  </script>
-  <script src="js/tabs.js" type="text/javascript">
-  </script>
   <style>
    /* CSS Custom Properties for Consistent Theming */
    :root {
@@ -165,12 +53,10 @@
     --shadow: 0 2px 8px rgba(0,0,0,0.1);
     --shadow-hover: 0 4px 16px rgba(0,0,0,0.15);
    }
-
    /* Modern CSS Reset */
    * {
     box-sizing: border-box;
    }
-
    body {
     margin: 0;
     padding: 0;
@@ -178,14 +64,12 @@
     line-height: 1.6;
     color: var(--text-color);
    }
-
    /* Responsive Container */
    .container {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 0 20px;
    }
-
    /* Modern Header Styles */
    #site-header {
     background: var(--white);
@@ -194,46 +78,38 @@
     top: 0;
     z-index: 100;
    }
-
    .header-top {
     background: var(--secondary-color);
     padding: 10px 0;
    }
-
    .header-top .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
    }
-
    .logo-section {
     display: flex;
     align-items: center;
    }
-
    .logo-section img {
     height: 50px;
     width: auto;
    }
-
    .company-info {
     text-align: right;
    }
-
    .company-info h1 {
     color: var(--primary-color);
     font-size: 16px;
     margin: 0;
     font-weight: 600;
    }
-
    .company-info p {
     color: var(--primary-color);
     font-size: 14px;
     margin: 0;
     font-weight: 500;
    }
-
    .country-flags {
     display: flex;
     gap: 8px;
@@ -241,18 +117,15 @@
     justify-content: flex-end;
     margin-top: 8px;
    }
-
    .country-flags img {
     width: 24px;
     height: 16px;
     border-radius: 2px;
     transition: var(--transition);
    }
-
    .country-flags img:hover {
     transform: scale(1.1);
    }
-
    /* Modern Navigation */
    .main-nav {
     background: var(--primary-color);
@@ -260,13 +133,11 @@
     display: flex;
     align-items: center;
    }
-
    .nav-container {
     width: 100%;
     display: flex;
     justify-content: center;
    }
-
    .nav-menu {
     display: flex;
     list-style: none;
@@ -274,7 +145,6 @@
     padding: 0;
     gap: 2px;
    }
-
    .nav-menu li a {
     display: block;
     padding: 15px 20px;
@@ -285,13 +155,11 @@
     transition: var(--transition);
     border-radius: var(--border-radius);
    }
-
    .nav-menu li a:hover,
    .nav-menu li a.active {
     background: rgba(255,255,255,0.1);
     transform: translateY(-2px);
    }
-
    /* Mobile Navigation */
    .mobile-menu-toggle {
     display: none;
@@ -302,18 +170,15 @@
     cursor: pointer;
     padding: 15px;
    }
-
    /* Main Content */
    #main-content {
     background: var(--white);
    }
-
    .content-container {
     max-width: var(--container-max-width);
     margin: 0 auto;
     padding: 60px 20px;
    }
-
    /* Responsive Breakpoints */
    @media (max-width: 768px) {
     .header-top .container {
@@ -321,19 +186,15 @@
      gap: 15px;
      text-align: center;
     }
-
     .company-info {
      text-align: center;
     }
-
     .company-info h1 {
      font-size: 14px;
     }
-
     .company-info p {
      font-size: 12px;
     }
-
     .nav-menu {
      display: none;
      flex-direction: column;
@@ -345,11 +206,9 @@
      box-shadow: var(--shadow);
      z-index: 1000;
     }
-
     .nav-menu.active {
      display: flex;
     }
-
     .nav-menu li a {
      padding: 20px;
      border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -359,66 +218,54 @@
      align-items: center;
      justify-content: center;
     }
-
     .mobile-menu-toggle {
      display: block;
      min-height: 44px;
      min-width: 44px;
     }
-
     .main-nav {
      position: relative;
      justify-content: space-between;
      padding: 0 20px;
     }
-
     .content-container {
      padding: 40px 20px;
     }
    }
-
    @media (max-width: 480px) {
     .container {
      padding: 0 15px;
     }
-
     .country-flags {
      flex-wrap: wrap;
      justify-content: center;
      gap: 6px;
     }
-
     .content-container {
      padding: 30px 15px;
     }
    }
-
    @media (max-width: 320px) {
     .company-info h1 {
      font-size: 12px;
     }
-
     .company-info p {
      font-size: 11px;
     }
-
     .country-flags img {
      width: 20px;
      height: 14px;
     }
    }
-
    /* Flatness Menu Styles */
    .menu {
     list-style: none;
     margin: 0;
     padding: 0;
    }
-
    .menu li {
     margin-bottom: 2px;
    }
-
    .menu li a {
     display: block;
     padding: 12px 16px;
@@ -430,13 +277,11 @@
     transition: var(--transition);
     border-left: 3px solid transparent;
    }
-
    .menu li a:hover {
     background: rgba(0, 75, 153, 0.1);
     color: var(--primary-color);
     border-left-color: rgba(0, 75, 153, 0.3);
    }
-
    .menu li.active a {
     background: var(--primary-color);
     color: var(--white);
@@ -444,19 +289,16 @@
     font-weight: 600;
     box-shadow: var(--shadow);
    }
-
    .menu li.active a:hover {
     background: #003d7a;
     color: var(--white);
    }
-
    @media (max-width: 768px) {
     .menu li a {
      padding: 14px 16px;
      font-size: 15px;
     }
    }
-
    /* Footer Styles */
    .site-footer {
     background: var(--primary-color);
@@ -464,23 +306,19 @@
     padding: 30px 0;
     margin-top: 20px;
    }
-
    .footer-content {
     text-align: center;
    }
-
    .footer-info p {
     margin: 0;
     color: rgba(255,255,255,0.9);
     font-size: 14px;
    }
-
    @media (max-width: 768px) {
     .site-footer {
      padding: 25px 0;
      margin-top: 15px;
     }
-
     .footer-info p {
      font-size: 12px;
     }
@@ -505,48 +343,9 @@
   }
 }
   </script>
-  <script type="text/javascript">
-   $(document).ready(function() {
-     // Function to show section based on hash
-     function showSectionFromHash() {
-       var hash = window.location.hash || '#importance';
-       var target = hash.replace('#', '') + '-section';
-
-       // Hide all content sections
-       $('.content-section').hide();
-
-       // Show the target section (fallback to importance if not found)
-       if ($('#' + target).length) {
-         $('#' + target).show();
-       } else {
-         $('#importance-section').show();
-         hash = '#importance';
-       }
-
-       // Update active menu item
-       $('.menu li').removeClass('active');
-       $('.menu a[href="' + hash + '"]').parent().addClass('active');
-     }
-
-     // Show section on page load
-     showSectionFromHash();
-
-     // Handle menu clicks
-     $('.menu a').click(function(e) {
-       // Don't prevent default - allow URL hash to update
-       var hash = $(this).attr('href');
-
-       // Update URL hash (this will trigger hashchange event)
-       window.location.hash = hash;
-     });
-
-     // Handle browser back/forward and direct hash navigation
-     $(window).on('hashchange', function() {
-       showSectionFromHash();
-     });
-   });
-  </script>
- </head>
+  <script src="js/modern-vanilla.js" type="text/javascript"></script>
+  <script src="js/modern-lightbox.js" type="text/javascript"></script>
+</head>
  <body>
   <div id="wrapper">
    <header id="site-header">
@@ -558,7 +357,6 @@
         <img alt="Eurolit Logo" src="images/logo.png"/>
        </a>
       </div>
-
       <div class="company-info">
        <h1>Specialists In Industrial Flooring</h1>
        <p>Consulting - Project Management - Construction</p>
@@ -582,7 +380,6 @@
       </div>
      </div>
     </div>
-
     <!-- Main Navigation -->
     <nav class="main-nav">
      <div class="container">
@@ -724,7 +521,6 @@
           In an environment where the Materials Handling Equipment (MHE) operate without suspension systems, the warehouse floor is the all important surface that affects the speed, efficiency, maintenance needs and often the safety and movement of the distribution centre operatives and their manually or automatically operated hardware.
          </p>
         </div>
-
         <!-- Specifications Section -->
         <div id="specifications-section" class="content-section" style="display:none;">
          <a name="specifications" id="specifications"></a>
@@ -804,7 +600,6 @@
           </tbody>
          </table>
         </div>
-
         <!-- Survey Section -->
         <div id="survey-section" class="content-section" style="display:none;">
          <a name="survey" id="survey"></a>
@@ -833,7 +628,6 @@
           Eurolit is able to provide surveying for all types of specifications, both for Free and Defined Movement, using exclusively UKAS (United Kingdom Accreditation Service) accredited equipment that are widely accepted by all truck manufacturers.
          </p>
         </div>
-
         <!-- Graphs Section -->
         <div id="graphs-section" class="content-section" style="display:none;">
          <a name="graphs" id="graphs"></a>
@@ -859,7 +653,6 @@
           <img alt="" src="images/graphS.png" style="float: left !important"/>
          </a>
         </div>
-
         <!-- Free Movement Section -->
         <div id="free_movement-section" class="content-section" style="display:none;">
          <a name="free-movement" id="free-movement"></a>
@@ -879,7 +672,6 @@
           It is worth noting that if the specification is not met, very little can be done to correct it, as the area affected will be so large and the added cost and time will result in an unrealistic approach. Hence it is very important that all necessary actions are taken to ensure that the contractor can deliver what was promised..
          </p>
         </div>
-
         <!-- Defined Movement Section -->
         <div id="define_movement-section" class="content-section" style="display:none;">
          <a name="defined-movement" id="defined-movement"></a>
@@ -916,7 +708,6 @@
           Eurolit is able to provide advice and surveying for all types of specifications using exclusively UKAS (United Kingdom Accreditation Service) accredited equipment that are widely accepted by all VNA truck manufacturers.
          </p>
         </div>
-
         <!-- Correction Section -->
         <div id="correction-section" class="content-section" style="display:none;">
          <a name="correction" id="correction"></a>
@@ -973,7 +764,6 @@
     <!-- #wrapper-content -->
    </main>
   </div>
-
   <footer class="site-footer">
    <div class="container">
     <div class="footer-content">
@@ -989,22 +779,18 @@
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
   }
-
   // Mobile menu functionality
   document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-
     if (mobileMenuToggle && navMenu) {
       mobileMenuToggle.addEventListener('click', function() {
         navMenu.classList.toggle('active');
-
         // Update button text and aria-expanded
         const isOpen = navMenu.classList.contains('active');
         mobileMenuToggle.innerHTML = isOpen ? '✕' : '☰';
         mobileMenuToggle.setAttribute('aria-expanded', isOpen);
       });
-
       // Close menu when clicking outside
       document.addEventListener('click', function(event) {
         if (!event.target.closest('.main-nav')) {
@@ -1013,7 +799,6 @@
           mobileMenuToggle.setAttribute('aria-expanded', 'false');
         }
       });
-
       // Close menu when pressing Escape
       document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && navMenu.classList.contains('active')) {
